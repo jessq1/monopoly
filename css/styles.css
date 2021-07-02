@@ -23,7 +23,8 @@ body {
 
 .playerStats {
     grid-column-start: 1;
-
+    border: 1px solid ;
+    width: 15vw
 }
 
 
@@ -42,6 +43,8 @@ body {
 #gameSum{
     grid-column-start: 3;
     grid-row-start: 1;
+    border: 1px solid ;
+    width: 15vw
 
 }
 
