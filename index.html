@@ -12,9 +12,41 @@
 <body>
 
 <section class='home' hidden>
-    <h1></h1>
-    <p></p>
-    <button>Start Game!</button>
+    <h1>Let's play Monopoly!</h1>
+
+    <div class="container">
+        <h2>Select how many people is playing:</h2>
+        <div class="select-box">
+          <div class="options-container">
+            <div class="option">
+              <input type="radio" name="2Player"/>
+              <label for="2">2</label>
+            </div>
+  
+            <div class="option">
+              <input type="radio"name="3Player" />
+              <label for="3">3</label>
+            </div>
+  
+            <div class="option">
+              <input type="radio" name="4Player" />
+              <label for="4">4</label>
+            </div>
+  
+            <div class="selected">
+                Select Player Number
+              </div>
+
+            </div>
+        </div>
+    </div>
+
+    <button id="playGame">Start Game!</button>
+
+    <!-- <select id=playerNumInput>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option> -->
 
 </section>
 
@@ -93,5 +125,6 @@
 
     <div id=gameSum> sum </div>
 </section>
+
 </body>
 </html>
