@@ -5,11 +5,20 @@
 body {
 	background: #fffdfd;
 	margin: 0px;
+}
+
+.home {
+    height: 100vh;
+    align-items: center;
+}
+
+.gamePage {
     display: grid;
     grid-template-columns: 15% 70% 15%;
     grid-template-rows: 20% 20% 20% 20% 20%;
     justify-items: center;
     padding: 15px;
+
 }
 
 .playerStats {

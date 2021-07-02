@@ -11,79 +11,87 @@
 </head>
 <body>
 
-<div class = playerStats id=player1Stats>1</div>
-<div class = playerStats id=player2Stats>2</div>
-<div class = playerStats id=player3Stats>3</div>
-<div class = playerStats id=player4Stats>4</div>
+<section class='home' hidden>
+    <h1></h1>
+    <p></p>
+    <button>Start Game!</button>
+
+</section>
+
+<section class='gamePage'>
+    <div class = playerStats id=player1Stats>1</div>
+    <div class = playerStats id=player2Stats>2</div>
+    <div class = playerStats id=player3Stats>3</div>
+    <div class = playerStats id=player4Stats>4</div>
 
 
-<table id="board">
-    <tr>
-        <td class="cell corner" id="cell20"></td>
-        <td class="cell top" id="cell21"></td>
-        <td class="cell top" id="cell22"></td>
-        <td class="cell top" id="cell23"></td>
-        <td class="cell top" id="cell24"></td>
-        <td class="cell top" id="cell25"></td>
-        <td class="cell top" id="cell26"></td>
-        <td class="cell top" id="cell27"></td>
-        <td class="cell top" id="cell28"></td>
-        <td class="cell top" id="cell29"></td>
-        <td class="cell corner" id="cell30"></td>
-    </tr><tr>
-        <td class="cell left" id="cell19"></td>
-        <td colspan="9" class="board-center"></td>
-        <td class="cell right" id="cell31"></td>
-    </tr><tr>
-        <td class="cell left" id="cell18"></td>
-        <td colspan="9" class="board-center"></td>
-        <td class="cell right" id="cell32"></td>
-    </tr><tr>
-        <td class="cell left" id="cell17"></td>
-        <td colspan="9" class="board-center"></td>
-        <td class="cell right" id="cell33"></td>
-    </tr><tr>
-        <td class="cell left" id="cell16"></td>
-        <td colspan="9" class="board-center"></td>
-        <td class="cell right" id="cell34"></td>
-    </tr><tr>
-        <td class="cell left" id="cell15"></td>
-        <td colspan="9" class="board-center"></td>
-        <td class="cell right" id="cell35"></td>
-    </tr><tr>
-        <td class="cell left" id="cell14"></td>
-        <td colspan="9" class="board-center"></td>
-        <td class="cell right" id="cell36"></td>
-    </tr><tr>
-        <td class="cell left" id="cell13"></td>
-        <td colspan="9" class="board-center"></td>
-        <td class="cell bight" id="cell37"></td>
-    </tr><tr>
-        <td class="cell left" id="cell12"></td>
-        <td colspan="9" class="board-center"></td>
-        <td class="cell right" id="cell38"></td>
-    </tr><tr>
-        <td class="cell left" id="cell11"></td>
-        <td colspan="9" class="board-center">
-            <div id="jail"></div>
-        </td>
-        <td class="cell right" id="cell39"></td>
-    </tr><tr>
-        <td class="cell corner" id="cell10"></td>
-        <td class="cell bottom" id="cell9"></td>
-        <td class="cell bottom" id="cell8"></td>
-        <td class="cell bottom" id="cell7"></td>
-        <td class="cell bottom" id="cell6"></td>
-        <td class="cell bottom" id="cell5"></td>
-        <td class="cell bottom" id="cell4"></td>
-        <td class="cell bottom" id="cell3"></td>
-        <td class="cell bottom" id="cell2"></td>
-        <td class="cell bottom" id="cell1"></td>
-        <td class="cell corner" id="cell0"></td>
-    </tr>
-</table>
+    <table id="board">
+        <tr>
+            <td class="cell corner" id="cell20"></td>
+            <td class="cell top" id="cell21"></td>
+            <td class="cell top" id="cell22"></td>
+            <td class="cell top" id="cell23"></td>
+            <td class="cell top" id="cell24"></td>
+            <td class="cell top" id="cell25"></td>
+            <td class="cell top" id="cell26"></td>
+            <td class="cell top" id="cell27"></td>
+            <td class="cell top" id="cell28"></td>
+            <td class="cell top" id="cell29"></td>
+            <td class="cell corner" id="cell30"></td>
+        </tr><tr>
+            <td class="cell left" id="cell19"></td>
+            <td colspan="9" class="board-center"></td>
+            <td class="cell right" id="cell31"></td>
+        </tr><tr>
+            <td class="cell left" id="cell18"></td>
+            <td colspan="9" class="board-center"></td>
+            <td class="cell right" id="cell32"></td>
+        </tr><tr>
+            <td class="cell left" id="cell17"></td>
+            <td colspan="9" class="board-center"></td>
+            <td class="cell right" id="cell33"></td>
+        </tr><tr>
+            <td class="cell left" id="cell16"></td>
+            <td colspan="9" class="board-center"></td>
+            <td class="cell right" id="cell34"></td>
+        </tr><tr>
+            <td class="cell left" id="cell15"></td>
+            <td colspan="9" class="board-center"></td>
+            <td class="cell right" id="cell35"></td>
+        </tr><tr>
+            <td class="cell left" id="cell14"></td>
+            <td colspan="9" class="board-center"></td>
+            <td class="cell right" id="cell36"></td>
+        </tr><tr>
+            <td class="cell left" id="cell13"></td>
+            <td colspan="9" class="board-center"></td>
+            <td class="cell bight" id="cell37"></td>
+        </tr><tr>
+            <td class="cell left" id="cell12"></td>
+            <td colspan="9" class="board-center"></td>
+            <td class="cell right" id="cell38"></td>
+        </tr><tr>
+            <td class="cell left" id="cell11"></td>
+            <td colspan="9" class="board-center">
+                <div id="jail"></div>
+            </td>
+            <td class="cell right" id="cell39"></td>
+        </tr><tr>
+            <td class="cell corner" id="cell10"></td>
+            <td class="cell bottom" id="cell9"></td>
+            <td class="cell bottom" id="cell8"></td>
+            <td class="cell bottom" id="cell7"></td>
+            <td class="cell bottom" id="cell6"></td>
+            <td class="cell bottom" id="cell5"></td>
+            <td class="cell bottom" id="cell4"></td>
+            <td class="cell bottom" id="cell3"></td>
+            <td class="cell bottom" id="cell2"></td>
+            <td class="cell bottom" id="cell1"></td>
+            <td class="cell corner" id="cell0"></td>
+        </tr>
+    </table>
 
-<div id=gameSum> sum </div>
-
+    <div id=gameSum> sum </div>
+</section>
 </body>
 </html>
