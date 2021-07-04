@@ -8,7 +8,7 @@ const player4 = "Player 4"
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let plCount, player1fund, player2fund, player3fund, player4fund, player1plot, player2plot, player3plot, player4plot, turn, winner; 
+let plCount, player1fund, player2fund, player3fund, player4fund, player1plot, player2plot, player3plot, player4plot, turn, winner, diceNum; 
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -68,5 +68,7 @@ function init(){
   player4plot = [];
   turn = null;
   winner = null;
+  diceNum = null;
 
 }
+

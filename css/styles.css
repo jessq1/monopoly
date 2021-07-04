@@ -53,7 +53,7 @@ div.home {
     grid-template-rows: 20% 20% 20% 20% 20%;
     justify-items: center;
     padding: 15px;
-
+    height: 100vh;
 }
 
 .playerStats {
@@ -111,5 +111,12 @@ div.home {
 
 #backToHome{
   grid-column-start: 3;
+  height: 100PX;
+  
 }
 
+.dice-wrapper{
+    grid-column-start: 3;
+    grid-row-start: 2;
+    margin: 20px;
+}
