@@ -23,19 +23,23 @@ div.home {
     font-size: 20px;
 }
 
-/* dropdown menu */
+    /* Home Page Selection */
 
-.select-playerNum{
-  display: flex;
-}
+    .select-playerNum{
+    display: flex;
+    }
 
-.playerNumOption{
-  width: 20vw;
-  height: 30vh;
-  font-size: 50px;
-  border: black 1px solid;
-  margin: 5%;
-}
+    .playerNumOption{
+    width: 20vw;
+    height: 30vh;
+    font-size: 50px;
+    border: black 1px solid;
+    margin: 5%;
+    }
+
+    #playGame{
+        display: none;
+    }
   
 
 /* gamepage CSS */

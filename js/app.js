@@ -25,10 +25,10 @@ const PlayerNumSel = document.querySelector(".playerNumSelection");
 
 PlayerNumSel.addEventListener("click", (evt) => {
     plCount = evt.target.id.charAt(0)
+    playBtn.style.display = "flex"
   });
   
 playBtn.addEventListener("click", () => {
-    console.log(homePage)
     homePage.style.display = 'none'
     gamePage.style.display = 'grid'
 })
@@ -36,6 +36,8 @@ playBtn.addEventListener("click", () => {
 homeBtn.addEventListener("click", ()=>{
   homePage.style.display = 'flex'
   gamePage.style.display = 'none'
+  playBtn.style.display = "none"
+
 })
 // optionsList.forEach(opt => {
 //     opt.addEventListener("click", () => {
