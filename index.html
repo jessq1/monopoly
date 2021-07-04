@@ -11,46 +11,27 @@
 </head>
 <body>
 
-<section class='home'>
+<div class='home'>
     <h1>Let's play Monopoly!</h1>
 
-    <div class="container">
+    <div class="playerNumSelection">
         <h2>Select how many people is playing:</h2>
-        <div class="select-box">
-          <div class="options-container">
-            <div class="option">
-              <input type="radio" name="2Player"/>
-              <label for="2">2</label>
-            </div>
+        <div class="select-playerNum">
+              <label class="playerNumOption" id="2ppl">2</label>
   
-            <div class="option">
-              <input type="radio"name="3Player" />
-              <label for="3">3</label>
-            </div>
+              <label class="playerNumOption"id="3ppl">3</label>
   
-            <div class="option">
-              <input type="radio" name="4Player" />
-              <label for="4">4</label>
-            </div>
-  
-            
-        </div>
-        <div class="selected">
-            Select Player Number
-          </div>
+              <label class="playerNumOption" id="4ppl">4</label>
+        
         </div>
     </div>
 
     <button id="playGame">Start Game!</button>
 
-    <!-- <select id=playerNumInput>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option> -->
 
-</section>
+</div>
 
-<!-- <section class='gamePage'>
+<div class='gamePage'>
     <div class = playerStats id=player1Stats>1</div>
     <div class = playerStats id=player2Stats>2</div>
     <div class = playerStats id=player3Stats>3</div>
@@ -124,7 +105,9 @@
     </table>
 
     <div id=gameSum> sum </div>
-</section> -->
+    <button id=backToHome>Back to Home</button>
+
+</div>
 
 </body>
 </html>
