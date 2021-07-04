@@ -12,7 +12,7 @@ let plCount, player1fund, player2fund, player3fund, player4fund, player1plot, pl
 
 
 /*------------------------ Cached Element References ------------------------*/
-const boardEl = document.getElementById('board');
+const boardEl = document.getElementById('boardWrapper');
 const playBtn = document.getElementById('playGame');
 const homeBtn = document.getElementById('backToHome');
 const homePage = document.querySelector("div.home");

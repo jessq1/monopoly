@@ -8,7 +8,7 @@ body {
 }
 
 
-/* Home Page CSS */
+/* ------------------------------------------------------ Home Page CSS -----------------------------------------------------*/
 
 div.home {
     text-align: center;
@@ -42,7 +42,10 @@ div.home {
     }
   
 
-/* gamepage CSS */
+/* -------------------------------------------------------- gamepage CSS -------------------------------------------------------*/
+
+
+/* game left column: */
 
 .gamePage {
     display: none;
@@ -59,17 +62,44 @@ div.home {
     width: 15vw
 }
 
+    /* monopoly board */
 
-#board {
-    grid-column-start: 2;
-    grid-row-start: 1;
-	border: 1px solid black;
-	border-spacing: 2px;
-	margin: 25px;
-	float: left;
-    width: 800px;
-    height: 800px;
-}
+    #board {
+        grid-column-start: 2;
+        grid-row-start: 1;
+        /* border: 1px solid black; */
+        /* border-spacing: 2px; */
+        /* margin: 0px; */
+        float: left;
+    }
+    
+    #boardWrapper{
+        display: grid;
+        grid-template-columns: 88px repeat(9,66px) 88px;
+        grid-template-rows: 88px repeat(9,66px) 88px;
+        column-gap: 2px;
+        row-gap: 2px;
+    }
+
+
+    .board-center{
+        border: hidden;
+        grid-column: 2 / span 9;
+        
+    }
+    
+    .top, .bottom{
+        width: 66px;
+        height: 88px;
+    }
+    .left, .right{
+        width: 66px;
+        /* height: 88px; */
+        transform: rotate(-90deg); 
+    } 
+
+
+/* game right column: */
 
 #gameSum{
     grid-column-start: 3;
@@ -83,20 +113,3 @@ div.home {
   grid-column-start: 3;
 }
 
-td {
-    border: 1px solid black;
-    padding: 0px;
-}
-
-.board-center{
-    border: hidden;
-}
-
-.top, .bottom{
-    width: 66px;
-    height: 88px;
-}
-.left, .right{
-    width: 88px;
-    height: 66px;
-}
