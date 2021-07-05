@@ -9,8 +9,10 @@ const allPlayerArr =[player1,player2,player3,player4]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let plCount, currentPlayer, playerArr, player1fund, player2fund, player3fund, player4fund, player1plot, player2plot, player3plot, player4plot, player1Steps, player2Steps, player3Steps, player4Steps, turn, winner, diceNum; 
+let plCount, currentPlayer, player1fund, player2fund, player3fund, player4fund, player1plot, player2plot, player3plot, player4plot, player1Steps, player2Steps, player3Steps, player4Steps, turn, turnId, winner, diceNum; 
 let BoardCellsArr =[]
+let  playerArr = []
+let  playersSteps = []
 
 
 
@@ -149,7 +151,15 @@ function init(){
   turn = 0;
   winner = null;
   diceNum = null;
-  playerArr = []
+  
+
+  for (let i = 0; i < plCount; i++) {
+    playerArr[i] = allPlayerArr[i];
+    playersSteps[i] = 0
+  }
+  
+  turnId=turn%playerArr.length
+  currentPlayer = playerArr[turnId]
 
 }
 
@@ -163,13 +173,18 @@ function rollDice() {
 
   diceMsg.innerText = `Your roll is ${diceNum}.`
   
+  playersSteps[turnId] += diceNum
+  turn += 1
+  turnId=turn%playerArr.length
+
+  // console.log(playersSteps)
 }
 
+
 function takeTurn(){
-  for (let i = 0; i < plCount; i++) {
-    playerArr[i] = allPlayerArr[i];
-    
-  }
-  console.log(playerArr)
+  
+
+  playerMsg.innerText = `It's ${currentPlayer}'s turn now`
+  
 }
 
