@@ -19,6 +19,7 @@ const homeBtn = document.getElementById('backToHome');
 const diceBtn = document.getElementById('rollDiceBtn');
 const Die1El = document.getElementById('firstDie');
 const Die2El = document.getElementById('secondDie');
+const diceMsg = document.getElementById('rollDiceMsg');
 
 
 const homePage = document.querySelector("div.home");
@@ -82,13 +83,14 @@ function init(){
 }
 
 function rollDice() {
-  let die1="dice"+Math.ceil(Math.random()*6)
-  let die2="dice"+Math.ceil(Math.random()*6)
-  Die1El.className = die1
-  Die2El.className = die2
+  let die1=Math.ceil(Math.random()*6)
+  let die2=Math.ceil(Math.random()*6)
+  Die1El.className = "dice"+die1
+  Die2El.className = "dice"+die2
 
+  diceNum = die1 + die2
 
-  console.log(Die1El)
-  console.log(Die2El)
+  diceMsg.innerText = `Your roll is ${diceNum}.`
+  
 }
 
