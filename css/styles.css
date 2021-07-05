@@ -115,8 +115,43 @@ div.home {
   
 }
 
-.dice-wrapper{
-    grid-column-start: 3;
-    grid-row-start: 2;
-    margin: 20px;
-}
+    /* roll dice: */
+    .dice-wrapper{
+        grid-column-start: 3;
+        grid-row-start: 2;
+        margin: 20px;
+    }
+
+    .dice1{
+        background-image: url("../../asset/dice-1.svg");
+        height: 50px;
+        width: 50px;
+    }
+    .dice2{
+        background-image: url("../../asset/dice-2.svg");
+        height: 50px;
+        width: 50px;
+    }
+    .dice3{
+        background-image: url("../../asset/dice-3.svg");
+        height: 50px;
+        width: 50px;
+    }
+    .dice4{
+        background-image: url("../../asset/dice-4.svg");
+        height: 50px;
+        width: 50px;
+    }
+    .dice5{
+        background-image: url("../../asset/dice-5.svg");
+        height: 50px;
+        width: 50px;
+    }
+    .dice6{
+        background-image: url("../../asset/dice-6.svg");
+        height: 50px;
+        width: 50px;
+    }
+
+/* others: */
+

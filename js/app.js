@@ -15,6 +15,12 @@ let plCount, player1fund, player2fund, player3fund, player4fund, player1plot, pl
 const boardEl = document.getElementById('boardWrapper');
 const playBtn = document.getElementById('playGame');
 const homeBtn = document.getElementById('backToHome');
+
+const diceBtn = document.getElementById('rollDiceBtn');
+const Die1El = document.getElementById('firstDie');
+const Die2El = document.getElementById('secondDie');
+
+
 const homePage = document.querySelector("div.home");
 const gamePage = document.querySelector(".gamePage");
 
@@ -44,6 +50,10 @@ homeBtn.addEventListener("click", ()=>{
   init()
 })
 
+diceBtn.addEventListener("click", () => {
+  rollDice()
+})
+
 
 
 /*--------------------------------- Objects ---------------------------------*/
@@ -51,7 +61,6 @@ homeBtn.addEventListener("click", ()=>{
 
 // chances cards as objects:
 
-// dice as objects:
 
 
 
@@ -70,5 +79,16 @@ function init(){
   winner = null;
   diceNum = null;
 
+}
+
+function rollDice() {
+  let die1="dice"+Math.ceil(Math.random()*6)
+  let die2="dice"+Math.ceil(Math.random()*6)
+  Die1El.className = die1
+  Die2El.className = die2
+
+
+  console.log(Die1El)
+  console.log(Die2El)
 }
 
