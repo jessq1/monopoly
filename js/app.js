@@ -5,11 +5,13 @@ const player1 = "Player 1"
 const player2 = "Player 2"
 const player3 = "Player 3"
 const player4 = "Player 4"
+const allPlayerArr =[player1,player2,player3,player4]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let plCount, player1fund, player2fund, player3fund, player4fund, player1plot, player2plot, player3plot, player4plot, player1Steps, player2Steps, player3Steps, player4Steps, turn, winner, diceNum; 
+let plCount, currentPlayer, playerArr, player1fund, player2fund, player3fund, player4fund, player1plot, player2plot, player3plot, player4plot, player1Steps, player2Steps, player3Steps, player4Steps, turn, winner, diceNum; 
 let BoardCellsArr =[]
+
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -25,6 +27,9 @@ const diceMsg = document.getElementById('rollDiceMsg');
 
 const homePage = document.querySelector("div.home");
 const gamePage = document.querySelector(".gamePage");
+
+const playerMsg = document.getElementById('playerMsg');
+
 
 // Home selction screen
 const PlayerNumSel = document.querySelector(".playerNumSelection");
@@ -43,6 +48,7 @@ playBtn.addEventListener("click", () => {
     homePage.style.display = 'none'
     gamePage.style.display = 'grid'
     init()
+    takeTurn()
 })
 
 homeBtn.addEventListener("click", ()=>{
@@ -118,7 +124,7 @@ BoardCellsArr[37]=new BoardCells("Avenue E", "$200", null, null, 50, 70, 100, 20
 BoardCellsArr[38]=new BoardCells("Avenue D", "$200", null, null, 50, 70, 100, 200, 100, 200)
 BoardCellsArr[39]=new BoardCells("Avenue E", "$200", null, null, 50, 70, 100, 200, 100, 200)
 
-console.log(BoardCellsArr)
+// console.log(BoardCellsArr)
 
 // chances cards as objects:
 
@@ -140,9 +146,10 @@ function init(){
   player2Steps = 0
   player3Steps = 0
   player4Steps = 0
-  turn = null;
+  turn = 0;
   winner = null;
   diceNum = null;
+  playerArr = []
 
 }
 
@@ -156,5 +163,13 @@ function rollDice() {
 
   diceMsg.innerText = `Your roll is ${diceNum}.`
   
+}
+
+function takeTurn(){
+  for (let i = 0; i < plCount; i++) {
+    playerArr[i] = allPlayerArr[i];
+    
+  }
+  console.log(playerArr)
 }
 
