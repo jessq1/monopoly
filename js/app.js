@@ -9,11 +9,12 @@ const allPlayerArr =[player1,player2,player3,player4]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let plCount, currentPlayer, player1fund, player2fund, player3fund, player4fund, player1plot, player2plot, player3plot, player4plot, player1Steps, player2Steps, player3Steps, player4Steps, turn, turnId, winner, diceNum; 
+let plCount, currentPlayer, player1fund, player2fund, player3fund, player4fund, player1plot, player2plot, player3plot, player4plot, player1Steps, player2Steps, player3Steps, player4Steps, turn, turnId, winner, diceNum, currentLocation; 
 let BoardCellsArr =[]
 let  playerArr = []
 let  playersSteps = []
 let playersLocations = []
+let playersFund = []
 
 
 
@@ -141,27 +142,29 @@ BoardCellsArr[39]=new BoardCells("Avenue 39", "$200", null, null, 50, 70, 100, 2
 init()
 
 function init(){
-  player1fund = initialFund;
-  player2fund = initialFund;
-  player3fund = initialFund;
-  player4fund = initialFund;
+  // player1fund = initialFund;
+  // player2fund = initialFund;
+  // player3fund = initialFund;
+  // player4fund = initialFund;
   player1plot = [];
   player2plot = [];
   player3plot = [];
   player4plot = [];
-  player1Steps = 0
-  player2Steps = 0
-  player3Steps = 0
-  player4Steps = 0
+  // player1Steps = 0
+  // player2Steps = 0
+  // player3Steps = 0
+  // player4Steps = 0
   turn = 0;
   winner = null;
   diceNum = null;
   playersLocationsArr = []
+  currentLocation = BoardCellsArr[0]
 
   for (let i = 0; i < plCount; i++) {
     playerArr[i] = allPlayerArr[i];
     playersSteps[i] = 0
     playersLocationsArr[i]=BoardCellsArr[0]
+    playersFund[i] = initialFund
   }
   
   turnId=turn%playerArr.length
@@ -187,15 +190,21 @@ function rollDice() {
 
 function takeTurn(){
   
-  
   playerMsg.innerText = `It's ${currentPlayer}'s turn now`
   
 }
 
+
 function play() {
   playersLocationsArr[turnId] = BoardCellsArr[playersSteps[turnId]%40]
+  currentLocation = BoardCellsArr[playersSteps[turnId]%40]
+
+  if (playersSteps[turnId]%40 == 0){
+    playersFund[turnId] += 200
+  }
 
   console.log(playersLocationsArr)
+  console.log(playersFund)
 
   turn += 1
   turnId=turn%playerArr.length
