@@ -18,6 +18,7 @@ let playersFund = []
 
 
 
+
 /*------------------------ Cached Element References ------------------------*/
 const boardEl = document.getElementById('boardWrapper');
 const playBtn = document.getElementById('playGame');
@@ -72,6 +73,19 @@ diceBtn.addEventListener("click", () => {
 
 
 /*--------------------------------- Objects ---------------------------------*/
+// players as objects:
+class players {
+  constructor(name, fund, steps,location, estate, status){
+    this.name = name;
+    this.fund = fund;
+    this.steps = steps;
+    this.location = location;
+    this.estate = estate;
+    this.status = status;
+  }
+}
+
+
 // 40 plots as classes and objects:
 
 class BoardCells {
@@ -184,7 +198,6 @@ function rollDice() {
   
   playersSteps[turnId] += diceNum
   
-  // console.log(playersSteps)
 }
 
 
@@ -201,12 +214,34 @@ function play() {
 
   if (playersSteps[turnId]%40 == 0){
     playersFund[turnId] += 200
+  } else if (playersSteps[turnId]%40 == 6 || playersSteps[turnId]%40 == 27 || playersSteps[turnId]%40 == 0){
+    drawChance()
+  } else if (playersSteps[turnId]%40==10 || playersSteps[turnId]%40 == 30){
+    inJail()
+  } else if (playersSteps[turnId]%40==16){
+    playersFund[turnId] -= 200
+  } else if (playersSteps[turnId]%40==20){
+    playersFund[turnId] = playersFund[turnId]
+  } else {
+    buyOrRent()
   }
 
   console.log(playersLocationsArr)
   console.log(playersFund)
 
   turn += 1
-  turnId=turn%playerArr.length
+  turnId=turn%playerArr.length;
+}
+
+function drawChance(){
+
+}
+
+function inJail(){
+  playersSteps[turnId]=10
+}
+
+function buyOrRent(){
+
 }
 
