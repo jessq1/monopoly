@@ -191,32 +191,32 @@ div.home {
       }
     
     .dice1{
-        background-image: url("../../asset/dice-1.svg");
+        background-image: url("/asset/dice-1.svg");
         height: 50px;
         width: 50px;
     }
     .dice2{
-        background-image: url("../../asset/dice-2.svg");
+        background-image: url("/asset/dice-2.svg");
         height: 50px;
         width: 50px;
     }
     .dice3{
-        background-image: url("../../asset/dice-3.svg");
+        background-image: url("/asset/dice-3.svg");
         height: 50px;
         width: 50px;
     }
     .dice4{
-        background-image: url("../../asset/dice-4.svg");
+        background-image: url("/asset/dice-4.svg");
         height: 50px;
         width: 50px;
     }
     .dice5{
-        background-image: url("../../asset/dice-5.svg");
+        background-image: url("/asset/dice-5.svg");
         height: 50px;
         width: 50px;
     }
     .dice6{
-        background-image: url("../../asset/dice-6.svg");
+        background-image: url("/asset/dice-6.svg");
         height: 50px;
         width: 50px;
     }
