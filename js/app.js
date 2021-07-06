@@ -18,11 +18,11 @@ let playersFund = []
 
 
 
-
 /*------------------------ Cached Element References ------------------------*/
 const boardEl = document.getElementById('boardWrapper');
 const playBtn = document.getElementById('playGame');
 const homeBtn = document.getElementById('backToHome');
+
 
 const diceBtn = document.getElementById('rollDiceBtn');
 const Die1El = document.getElementById('firstDie');
@@ -89,7 +89,8 @@ class players {
 // 40 plots as classes and objects:
 
 class BoardCells {
-  constructor(name, msgText, groupNumber, owner, rent1, rent2, rent3, price, price2, price3) {
+  constructor(cellEl, name, msgText, groupNumber, owner, rent1, rent2, rent3, price, price2, price3) {
+    this.cellEl = cellEl;
     this.name = name;
     this.msgText = msgText;
     this.groupNumber = groupNumber;
@@ -104,48 +105,48 @@ class BoardCells {
   }
 }
 
-BoardCellsArr[0]=new BoardCells("GO", "COLLECT $200 AS YOU PASS.")
-BoardCellsArr[1]=new BoardCells("Avenue 1", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[2]=new BoardCells("Avenue 2", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[3]=new BoardCells("Avenue 3", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[4]=new BoardCells("Avenue 4", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[5]=new BoardCells("Avenue 5", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[6]=new BoardCells("Chance", "SELECT A CHANCE CARD")
-BoardCellsArr[7]=new BoardCells("Avenue 7", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[8]=new BoardCells("Avenue 8", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[9]=new BoardCells("Avenue 9", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[10]=new BoardCells("JAIL")
-BoardCellsArr[11]=new BoardCells("Avenue 11", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[12]=new BoardCells("Avenue 12", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[13]=new BoardCells("Avenue 13", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[14]=new BoardCells("Avenue 14", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[15]=new BoardCells("Avenue 15", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[16]=new BoardCells("ILLEGAL PARKING", "$200 fine")
-BoardCellsArr[17]=new BoardCells("Avenue 17", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[18]=new BoardCells("Avenue 18", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[19]=new BoardCells("Avenue 19", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[20]=new BoardCells("FREE PARKING", "$0")
-BoardCellsArr[21]=new BoardCells("Avenue 21", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[22]=new BoardCells("Avenue 22", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[23]=new BoardCells("Avenue 23", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[24]=new BoardCells("Avenue 24", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[25]=new BoardCells("Avenue 25", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[26]=new BoardCells("Avenue 26", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[27]=new BoardCells("Chance", "SELECT A CHANCE CARD")
-BoardCellsArr[28]=new BoardCells("Avenue 28", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[29]=new BoardCells("Avenue 29", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[30]=new BoardCells("Go to Jail")
-BoardCellsArr[31]=new BoardCells("Avenue 31", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[32]=new BoardCells("Avenue 32", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[33]=new BoardCells("Avenue 33", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[34]=new BoardCells("Avenue 34", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[35]=new BoardCells("Chance", "SELECT A CHANCE CARD")
-BoardCellsArr[36]=new BoardCells("Avenue 36", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[37]=new BoardCells("Avenue 37", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[38]=new BoardCells("Avenue 38", "$200", null, null, 50, 70, 100, 200, 100, 200)
-BoardCellsArr[39]=new BoardCells("Avenue 39", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[0]=new BoardCells(document.getElementById('cell0'),"GO", "COLLECT $200 AS YOU PASS.")
+BoardCellsArr[1]=new BoardCells(document.getElementById('cell1'),"Avenue 1", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[2]=new BoardCells(document.getElementById('cell2'),"Avenue 2", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[3]=new BoardCells(document.getElementById('cell3'),"Avenue 3", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[4]=new BoardCells(document.getElementById('cell4'),"Avenue 4", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[5]=new BoardCells(document.getElementById('cell5'),"Avenue 5", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[6]=new BoardCells(document.getElementById('cell6'),"Chance", "SELECT A CHANCE CARD")
+BoardCellsArr[7]=new BoardCells(document.getElementById('cell7'),"Avenue 7", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[8]=new BoardCells(document.getElementById('cell8'),"Avenue 8", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[9]=new BoardCells(document.getElementById('cell9'),"Avenue 9", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[10]=new BoardCells(document.getElementById('cell10'),"JAIL")
+BoardCellsArr[11]=new BoardCells(document.getElementById('cell11'),"Avenue 11", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[12]=new BoardCells(document.getElementById('cell12'),"Avenue 12", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[13]=new BoardCells(document.getElementById('cell13'),"Avenue 13", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[14]=new BoardCells(document.getElementById('cell14'),"Avenue 14", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[15]=new BoardCells(document.getElementById('cell15'),"Avenue 15", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[16]=new BoardCells(document.getElementById('cell16'),"ILLEGAL PARKING", "$200 fine")
+BoardCellsArr[17]=new BoardCells(document.getElementById('cell17'),"Avenue 17", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[18]=new BoardCells(document.getElementById('cell18'),"Avenue 18", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[19]=new BoardCells(document.getElementById('cell19'),"Avenue 19", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[20]=new BoardCells(document.getElementById('cell20'),"FREE PARKING", "$0")
+BoardCellsArr[21]=new BoardCells(document.getElementById('cell21'),"Avenue 21", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[22]=new BoardCells(document.getElementById('cell22'),"Avenue 22", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[23]=new BoardCells(document.getElementById('cell23'),"Avenue 23", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[24]=new BoardCells(document.getElementById('cell24'),"Avenue 24", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[25]=new BoardCells(document.getElementById('cell25'),"Avenue 25", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[26]=new BoardCells(document.getElementById('cell26'),"Avenue 26", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[27]=new BoardCells(document.getElementById('cell27'),"Chance", "SELECT A CHANCE CARD")
+BoardCellsArr[28]=new BoardCells(document.getElementById('cell28'),"Avenue 28", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[29]=new BoardCells(document.getElementById('cell29'),"Avenue 29", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[30]=new BoardCells(document.getElementById('cell30'),"Go to Jail")
+BoardCellsArr[31]=new BoardCells(document.getElementById('cell31'),"Avenue 31", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[32]=new BoardCells(document.getElementById('cell32'),"Avenue 32", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[33]=new BoardCells(document.getElementById('cell33'),"Avenue 33", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[34]=new BoardCells(document.getElementById('cell34'),"Avenue 34", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[35]=new BoardCells(document.getElementById('cell35'),"Chance", "SELECT A CHANCE CARD")
+BoardCellsArr[36]=new BoardCells(document.getElementById('cell36'),"Avenue 36", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[37]=new BoardCells(document.getElementById('cell37'),"Avenue 37", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[38]=new BoardCells(document.getElementById('cell38'),"Avenue 38", "$200", null, null, 50, 70, 100, 200, 100, 200)
+BoardCellsArr[39]=new BoardCells(document.getElementById('cell39'),"Avenue 39", "$200", null, null, 50, 70, 100, 200, 100, 200)
 
-// console.log(BoardCellsArr)
+console.log(BoardCellsArr)
 
 // chances cards as objects:
 
@@ -153,17 +154,17 @@ BoardCellsArr[39]=new BoardCells("Avenue 39", "$200", null, null, 50, 70, 100, 2
 
 
 /*-------------------------------- Functions --------------------------------*/
-init()
+// init()
 
 function init(){
   // player1fund = initialFund;
   // player2fund = initialFund;
   // player3fund = initialFund;
   // player4fund = initialFund;
-  player1plot = [];
-  player2plot = [];
-  player3plot = [];
-  player4plot = [];
+  // player1plot = [];
+  // player2plot = [];
+  // player3plot = [];
+  // player4plot = [];
   // player1Steps = 0
   // player2Steps = 0
   // player3Steps = 0
@@ -175,15 +176,17 @@ function init(){
   currentLocation = BoardCellsArr[0]
 
   for (let i = 0; i < plCount; i++) {
-    playerArr[i] = allPlayerArr[i];
-    playersSteps[i] = 0
-    playersLocationsArr[i]=BoardCellsArr[0]
-    playersFund[i] = initialFund
+    playerArr[i] = new players(allPlayerArr[i], initialFund,0,BoardCellsArr[0], [], "playing")
+    // playerArr[i] = allPlayerArr[i];
+    // playersSteps[i] = 0
+    // playersLocationsArr[i]=BoardCellsArr[0]
+    // playersFund[i] = initialFund
   }
   
   turnId=turn%playerArr.length
-  currentPlayer = playerArr[turnId]
+  currentPlayer = playerArr[turnId].name
 
+  console.log(playerArr)
 }
 
 function rollDice() {
@@ -196,7 +199,7 @@ function rollDice() {
 
   diceMsg.innerText = `Your roll is ${diceNum}.`
   
-  playersSteps[turnId] += diceNum
+  playerArr[turnId].steps += diceNum
   
 }
 
@@ -209,25 +212,28 @@ function takeTurn(){
 
 
 function play() {
-  playersLocationsArr[turnId] = BoardCellsArr[playersSteps[turnId]%40]
-  currentLocation = BoardCellsArr[playersSteps[turnId]%40]
+  playerArr[turnId].location = BoardCellsArr[playerArr[turnId].steps%40]
+  currentLocation = BoardCellsArr[playerArr[turnId].steps%40]
 
-  if (playersSteps[turnId]%40 == 0){
-    playersFund[turnId] += 200
-  } else if (playersSteps[turnId]%40 == 6 || playersSteps[turnId]%40 == 27 || playersSteps[turnId]%40 == 0){
+  currentLocation.className = "player"+(turnId+1)+"Loc"
+
+  console.log
+
+  if (playerArr[turnId].steps%40 == 0){
+    playerArr[turnId].fund += 200
+  } else if (playerArr[turnId].steps%40 == 6 || playerArr[turnId].steps%40%40 == 27 || playerArr[turnId].steps%40== 0){
     drawChance()
-  } else if (playersSteps[turnId]%40==10 || playersSteps[turnId]%40 == 30){
+  } else if (playerArr[turnId].steps%40==10 || playerArr[turnId].steps%40 == 30){
     inJail()
-  } else if (playersSteps[turnId]%40==16){
-    playersFund[turnId] -= 200
-  } else if (playersSteps[turnId]%40==20){
-    playersFund[turnId] = playersFund[turnId]
+  } else if (playerArr[turnId].steps%40==16){
+    playerArr[turnId].fund -= 200
+  } else if (playerArr[turnId].steps%40==20){
+    playerArr[turnId].fund = playerArr[turnId].fund
   } else {
     buyOrRent()
   }
 
-  console.log(playersLocationsArr)
-  console.log(playersFund)
+  console.log(playerArr)
 
   turn += 1
   turnId=turn%playerArr.length;
@@ -238,7 +244,7 @@ function drawChance(){
 }
 
 function inJail(){
-  playersSteps[turnId]=10
+  playerArr[turnId].steps=10
 }
 
 function buyOrRent(){

@@ -98,6 +98,9 @@ div.home {
         transform: rotate(-90deg); 
     } 
 
+    .player1Loc{
+        background-color: blue;
+    }
 
 /* game right column: */
 
