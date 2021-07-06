@@ -50,6 +50,10 @@ const PassGoWrapper = document.getElementById('PassGoWrapper');
 const illegalParkingWrapper = document.getElementById('illegalParkingWrapper');
 const illegalParkingBtn = document.getElementById('illegalParkingBtn');
 
+// Free Parking function screen
+const freeParkingWrapper = document.getElementById('freeParkingWrapper');
+const freeParkingBtn = document.getElementById('freeParkingBtn');
+
 // overall items
 const homePage = document.querySelector("div.home");
 const gamePage = document.querySelector(".gamePage");
@@ -121,6 +125,12 @@ PassGoBtn.addEventListener("click", () => {
 
 illegalParkingBtn.addEventListener("click", () => {
   showHideillegalParking()
+  endRound()
+  showDice()
+})
+
+freeParkingBtn.addEventListener("click", () => {
+  showHideFreeParking()
   endRound()
   showDice()
 })
@@ -370,7 +380,7 @@ function freeParking(){
   showHideFreeParking()
 }
 function showHideFreeParking(){
-  // illegalParkingWrapper.classList.toggle("show");
+  freeParkingWrapper.classList.toggle("show");
 }
 
 
