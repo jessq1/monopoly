@@ -42,6 +42,9 @@ const RentWrapper = document.getElementById('RentWrapper');
 const buyMsg = document.getElementById('buyMsg');
 const RentMsg = document.getElementById('RentMsg');
 
+// Pass go function screen
+const PassGoBtn = document.getElementById('PassGoBtn');
+const PassGoWrapper = document.getElementById('PassGoWrapper');
 
 
 // overall items
@@ -92,21 +95,24 @@ playBtn.addEventListener("click", () => {
   
   confirmBuyBtn.addEventListener("click", () => {
     buyLand()
-    // confirmDiceBtn.classList.remove("show");
     showDice()
 })
 
 denyBuyBtn.addEventListener("click", () => {
   showHideBuy()
   endRound()
-  // confirmDiceBtn.classList.remove("show");
   showDice()
 })
 
 rentBtn.addEventListener("click", () => {
   showHideRent()
   endRound()
-  // confirmDiceBtn.classList.remove("show");
+  showDice()
+})
+
+PassGoBtn.addEventListener("click", () => {
+  showHidePassGo()
+  endRound()
   showDice()
 })
 
@@ -314,7 +320,13 @@ function endRound(){
 }
 
 function passGo(){
+  showHidePassGo()
+  adjustFund(200)
 
+}
+
+function showHidePassGo(){
+  PassGoWrapper.classList.toggle("show");
 }
 
 
