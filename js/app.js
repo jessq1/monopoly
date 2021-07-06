@@ -44,7 +44,6 @@ const RentMsg = document.getElementById('RentMsg');
 
 
 
-
 // overall items
 const homePage = document.querySelector("div.home");
 const gamePage = document.querySelector(".gamePage");
@@ -70,30 +69,46 @@ playBtn.addEventListener("click", () => {
     gamePage.style.display = 'grid'
     init()
     takeTurn()
-    showHideDice()
-    console.log(diceWrapper)
+    showDice()
+    // console.log(diceWrapper)
+  })
+  
+  homeBtn.addEventListener("click", ()=>{
+    homePage.style.display = 'flex'
+    gamePage.style.display = 'none'
+    playBtn.style.display = "none"
+    init()
+  })
+  
+  diceBtn.addEventListener("click", () => {
+    rollDice()
+  })
+  
+  confirmDiceBtn.addEventListener("click", () => {
+    hideDice()
+    confirmDiceBtn.classList.remove("show");
+    play()
+  })
+  
+  confirmBuyBtn.addEventListener("click", () => {
+    buyLand()
+    // confirmDiceBtn.classList.remove("show");
+    showDice()
 })
 
-homeBtn.addEventListener("click", ()=>{
-  homePage.style.display = 'flex'
-  gamePage.style.display = 'none'
-  playBtn.style.display = "none"
-  init()
+denyBuyBtn.addEventListener("click", () => {
+  showHideBuy()
+  endRound()
+  // confirmDiceBtn.classList.remove("show");
+  showDice()
 })
 
-diceBtn.addEventListener("click", () => {
-  rollDice()
+rentBtn.addEventListener("click", () => {
+  showHideRent()
+  endRound()
+  // confirmDiceBtn.classList.remove("show");
+  showDice()
 })
-
-confirmDiceBtn.addEventListener("click", () => {
-  showHideDice()
-  play()
-})
-
-confirmBuyBtn.addEventListener("click", () => {
-  buyLand()
-})
-
 
 
 /*--------------------------------- Objects ---------------------------------*/
@@ -223,15 +238,19 @@ function init(){
 
 }
 
-function showHideDice(){
-  let popup = document.getElementById("diceWrapper");
-  popup.classList.toggle("show");
-
+function showDice(){
+  diceWrapper.classList.add("show");
+  diceBtn.classList.add("show");
+  diceMsg.innerText = ""
+}
+function hideDice(){
+  diceWrapper.classList.remove("show");
+  confirmDiceBtn.classList.remove("show");
 }
 
 
 function rollDice() {
-  diceBtn.classList.toggle("show");
+  diceBtn.classList.remove("show");
 
   let die1=Math.ceil(Math.random()*6)
   let die2=Math.ceil(Math.random()*6)
@@ -243,7 +262,7 @@ function rollDice() {
   diceMsg.innerText = `Your roll is ${diceNum}.`
   
   playerArr[turnId].steps += diceNum
-  confirmDiceBtn.classList.toggle("show");
+  confirmDiceBtn.classList.add("show");
 
 }
 
@@ -328,31 +347,40 @@ function freeParking(){
 }
 
 
+function showHideBuy(){
+  buyWrapper.classList.toggle("show");
+}
+function showHideRent(){
+  RentWrapper.classList.toggle("show");
+}
+
 function buyOrRent(){
   if (playerArr[turnId].location.owner == null){
-    buyWrapper.classList.toggle("show");
+    showHideBuy();
     buyMsg.innerText = `This lot is for sale! Do you want to buy it for ${playerArr[turnId].location.price}?`
   } else if (playerArr[turnId].location.owner == playerArr[turnId].name){
-    buyWrapper.classList.toggle("show");
+    showHideBuy();
     if (playerArr[turnId].location.level == 1){
       buyMsg.innerText = `Do you want to add a building for ${playerArr[turnId].location.price2}?`
     } if (playerArr[turnId].location.level == 2){
       buyMsg.innerText = `Do you want to add a highrise for ${playerArr[turnId].location.price3}?`
     }
   } else {
-    RentWrapper.classList.toggle("show");
+    showHideRent();
     if (playerArr[turnId].location.level == 1){
       RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner}, you have to pay ${playerArr[turnId].location.rent1}.`
-      adjustFund(-playerArr[turnId].location.price)
-      // playerArr[turnId].location.owner.
+      adjustFund(-playerArr[turnId].location.rent1)
+      playerArr[turnId].location.owner.fund += playerArr[turnId].location.rent1
     } else if (playerArr[turnId].location.level == 2){
       RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner}, you have to pay ${playerArr[turnId].location.rent2}.`
-      adjustFund(-playerArr[turnId].location.price)
+      adjustFund(-playerArr[turnId].location.rent2)
+      playerArr[turnId].location.owner.fund += playerArr[turnId].location.rent2
 
 
     } else if (playerArr[turnId].location.level == 3){
       RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner}, you have to pay ${playerArr[turnId].location.rent3}.`
-      adjustFund(-playerArr[turnId].location.price)
+      adjustFund(-playerArr[turnId].location.rent3)
+      playerArr[turnId].location.owner.fund += playerArr[turnId].location.rent3
 
     }
 
@@ -375,7 +403,8 @@ function buyLand(){
     playerArr[turnId].location.level = 3
   }
   console.log(playerArr)
-  // end turn!
+  endRound()
+  showHideBuy()
 }
 
 
