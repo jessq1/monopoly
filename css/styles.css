@@ -150,12 +150,46 @@ div.home {
 }
 
     /* roll dice: */
-    .dice-wrapper{
+
+    /* .dice-wrapper{
         grid-column-start: 3;
         grid-row-start: 2;
         margin: 20px;
-    }
+    } */
 
+    .dice-wrapper {
+        visibility: hidden;
+        width: 160px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        border: indigo 1px solid;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 50%;
+        left: 50%;
+        margin-left: -80px;
+      }
+
+      .dice-wrapper.show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s
+      }
+
+      .diceBtns{
+        border: 0px;
+        visibility: hidden;
+      }
+
+      .diceBtns.show {
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s
+      }
+    
     .dice1{
         background-image: url("../../asset/dice-1.svg");
         height: 50px;

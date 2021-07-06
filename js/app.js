@@ -17,15 +17,26 @@ let chanceCardsArr = []
 
 
 /*------------------------ Cached Element References ------------------------*/
-const boardEl = document.getElementById('boardWrapper');
+// Home selction screen
+const PlayerNumSel = document.querySelector(".playerNumSelection");
 const playBtn = document.getElementById('playGame');
+
+// Game selction screen
+const boardEl = document.getElementById('boardWrapper');
 const homeBtn = document.getElementById('backToHome');
 
-
+// Dice function screen
 const diceBtn = document.getElementById('rollDiceBtn');
+const confirmDiceBtn = document.getElementById('confirmDiceBtn');
 const Die1El = document.getElementById('firstDie');
 const Die2El = document.getElementById('secondDie');
 const diceMsg = document.getElementById('rollDiceMsg');
+const diceWrapper = document.getElementById('diceWrapper');
+
+// But or rent function screen
+const confirmBuyBtn = document.getElementById('confirmBuyBtn');
+const denyBuyBtn = document.getElementById('denyBuyBtn');
+const rentBtn = document.getElementById('rentBtn');
 
 
 const homePage = document.querySelector("div.home");
@@ -34,8 +45,6 @@ const gamePage = document.querySelector(".gamePage");
 const playerMsg = document.getElementById('playerMsg');
 
 
-// Home selction screen
-const PlayerNumSel = document.querySelector(".playerNumSelection");
 
 
 
@@ -54,6 +63,8 @@ playBtn.addEventListener("click", () => {
     gamePage.style.display = 'grid'
     init()
     takeTurn()
+    showHideDice()
+    console.log(diceWrapper)
 })
 
 homeBtn.addEventListener("click", ()=>{
@@ -65,6 +76,10 @@ homeBtn.addEventListener("click", ()=>{
 
 diceBtn.addEventListener("click", () => {
   rollDice()
+})
+
+confirmDiceBtn.addEventListener("click", () => {
+  showHideDice()
   play()
 })
 
@@ -198,7 +213,16 @@ function init(){
 
 }
 
+function showHideDice(){
+  let popup = document.getElementById("diceWrapper");
+  popup.classList.toggle("show");
+
+}
+
+
 function rollDice() {
+  diceBtn.classList.toggle("show");
+
   let die1=Math.ceil(Math.random()*6)
   let die2=Math.ceil(Math.random()*6)
   Die1El.className = "dice"+die1
@@ -209,7 +233,8 @@ function rollDice() {
   diceMsg.innerText = `Your roll is ${diceNum}.`
   
   playerArr[turnId].steps += diceNum
-  
+  confirmDiceBtn.classList.toggle("show");
+
 }
 
 
@@ -268,7 +293,18 @@ function drawChance(){
 }
 
 function inJail(){
-  playerArr[turnId].steps=10
+  if (playerArr[turnId].status = "playing") {
+    playerArr[turnId].status = "in Jail"
+    playerArr[turnId].steps=10
+  } else if (playerArr[turnId].status = "in Jail"){
+    playerArr[turnId].status = "Jail Time - two more round"
+    playerArr[turnId].steps=10
+  } else if (playerArr[turnId].status = "Jail Time - two more round"){
+    playerArr[turnId].status = "Jail Time - one more round"
+    playerArr[turnId].steps=10
+  } else {
+    playerArr[turnId].status = "playing"
+  }
 }
 
 function illegalParking(){
@@ -283,7 +319,7 @@ function freeParking(){
 function buyOrRent(){
   let popup = document.getElementById("buyOrRentWrapper");
   popup.classList.toggle("show");
-
+  
 
 }
 
