@@ -323,3 +323,95 @@ div.home {
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
   }
+
+    /* Free Parking Pop up Window: */
+.freeParkingWrapper {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: indigo 1px solid;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+.freeParkingWrapper.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Free Parking Pop up Window: */
+.freeParkingWrapper {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: indigo 1px solid;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+.freeParkingWrapper.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* In Jail Pop up Window: */
+.inJailWrapper {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: indigo 1px solid;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+.inJailWrapper.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Out of Jail Pop up Window: */
+.outOfJailWrapper {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: indigo 1px solid;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+.outOfJailWrapper.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}

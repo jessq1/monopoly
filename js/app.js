@@ -54,6 +54,14 @@ const illegalParkingBtn = document.getElementById('illegalParkingBtn');
 const freeParkingWrapper = document.getElementById('freeParkingWrapper');
 const freeParkingBtn = document.getElementById('freeParkingBtn');
 
+// In Jail function screen
+const inJailWrapper = document.getElementById('inJailWrapper');
+const inJailMsg = document.getElementById('inJailMsg');
+const inJailBtn = document.getElementById('inJailBtn');
+const outOfJailWrapper = document.getElementById('outOfJailWrapper');
+const outOfJailBtn = document.getElementById('outOfJailBtn');
+
+
 // overall items
 const homePage = document.querySelector("div.home");
 const gamePage = document.querySelector(".gamePage");
@@ -130,6 +138,12 @@ illegalParkingBtn.addEventListener("click", () => {
 })
 
 freeParkingBtn.addEventListener("click", () => {
+  showHideFreeParking()
+  endRound()
+  showDice()
+})
+
+inJailBtn.addEventListener("click", () => {
   showHideFreeParking()
   endRound()
   showDice()
@@ -332,9 +346,7 @@ function play() {
 function endRound(){
   turn += 1
   turnId=turn%playerArr.length;
-  
   takeTurn()
-
 }
 
 function passGo(){
@@ -354,18 +366,32 @@ function drawChance(){
 
 function inJail(){
   if (playerArr[turnId].status = "playing") {
+    showHideInJail()
     playerArr[turnId].status = "in Jail"
     playerArr[turnId].steps=10
+    inJailMsg.innerText = "You are in Jail! Have to pause for 3 rounds"
   } else if (playerArr[turnId].status = "in Jail"){
+    showHideInJail()
     playerArr[turnId].status = "Jail Time - two more round"
     playerArr[turnId].steps=10
+    inJailMsg.innerText = "You are in Jail! Have to pause for 2 more rounds"
   } else if (playerArr[turnId].status = "Jail Time - two more round"){
+    showHideInJail()
     playerArr[turnId].status = "Jail Time - one more round"
     playerArr[turnId].steps=10
+    inJailMsg.innerText = "You are in Jail! Have to pause for 1 more rounds"
   } else {
+    showHideOutOfJail()
     playerArr[turnId].status = "playing"
   }
 }
+function showHideInJail(){
+  inJailWrapper.classList.toggle("show");
+}
+function showHideOutOfJail(){
+  outOfJailWrapper.classList.toggle("show");
+}
+
 
 function illegalParking(){
   showHideillegalParking()
