@@ -33,7 +33,7 @@ const Die2El = document.getElementById('secondDie');
 const diceMsg = document.getElementById('rollDiceMsg');
 const diceWrapper = document.getElementById('diceWrapper');
 
-// But or rent function screen
+// Buy or rent function screen
 const confirmBuyBtn = document.getElementById('confirmBuyBtn');
 const denyBuyBtn = document.getElementById('denyBuyBtn');
 const rentBtn = document.getElementById('rentBtn');
@@ -46,6 +46,9 @@ const RentMsg = document.getElementById('RentMsg');
 const PassGoBtn = document.getElementById('PassGoBtn');
 const PassGoWrapper = document.getElementById('PassGoWrapper');
 
+// Illegal Parking function screen
+const illegalParkingWrapper = document.getElementById('illegalParkingWrapper');
+const illegalParkingBtn = document.getElementById('illegalParkingBtn');
 
 // overall items
 const homePage = document.querySelector("div.home");
@@ -112,6 +115,12 @@ rentBtn.addEventListener("click", () => {
 
 PassGoBtn.addEventListener("click", () => {
   showHidePassGo()
+  endRound()
+  showDice()
+})
+
+illegalParkingBtn.addEventListener("click", () => {
+  showHideillegalParking()
   endRound()
   showDice()
 })
@@ -298,7 +307,6 @@ function play() {
   } else if (playerArr[turnId].steps%40==10 || playerArr[turnId].steps%40 == 30){
     inJail()
   } else if (playerArr[turnId].steps%40==16){
-    playerArr[turnId].fund -= 200
     illegalParking()
   } else if (playerArr[turnId].steps%40==20){
     playerArr[turnId].fund = playerArr[turnId].fund
@@ -322,7 +330,6 @@ function endRound(){
 function passGo(){
   showHidePassGo()
   adjustFund(200)
-
 }
 
 function showHidePassGo(){
@@ -351,11 +358,19 @@ function inJail(){
 }
 
 function illegalParking(){
+  showHideillegalParking()
+  adjustFund(-200)
 
+}
+function showHideillegalParking(){
+  illegalParkingWrapper.classList.toggle("show");
 }
 
 function freeParking(){
-
+  showHideFreeParking()
+}
+function showHideFreeParking(){
+  // illegalParkingWrapper.classList.toggle("show");
 }
 
 
@@ -380,17 +395,17 @@ function buyOrRent(){
   } else {
     showHideRent();
     if (playerArr[turnId].location.level == 1){
-      RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner}, you have to pay ${playerArr[turnId].location.rent1}.`
+      RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner.name}, you have to pay ${playerArr[turnId].location.rent1}.`
       adjustFund(-playerArr[turnId].location.rent1)
       playerArr[turnId].location.owner.fund += playerArr[turnId].location.rent1
     } else if (playerArr[turnId].location.level == 2){
-      RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner}, you have to pay ${playerArr[turnId].location.rent2}.`
+      RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner.name}, you have to pay ${playerArr[turnId].location.rent2}.`
       adjustFund(-playerArr[turnId].location.rent2)
       playerArr[turnId].location.owner.fund += playerArr[turnId].location.rent2
 
 
     } else if (playerArr[turnId].location.level == 3){
-      RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner}, you have to pay ${playerArr[turnId].location.rent3}.`
+      RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner.name}, you have to pay ${playerArr[turnId].location.rent3}.`
       adjustFund(-playerArr[turnId].location.rent3)
       playerArr[turnId].location.owner.fund += playerArr[turnId].location.rent3
 

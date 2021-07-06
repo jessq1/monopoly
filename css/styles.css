@@ -277,3 +277,49 @@ div.home {
     from {opacity: 0;}
     to {opacity:1 ;}
   }
+
+/* Pass Go Pop up Window: */
+.PassGoWrapper {
+    visibility: hidden;
+    width: 160px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: indigo 1px solid;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 50%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  .PassGoWrapper.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+
+  /* Illegal Parking Pop up Window: */
+.illegalParkingWrapper {
+    visibility: hidden;
+    width: 160px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: indigo 1px solid;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 50%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  .illegalParkingWrapper.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
