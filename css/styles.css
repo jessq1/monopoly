@@ -100,6 +100,24 @@ div.home {
 
     .player1Loc{
         background-color: blue;
+        content: "A";
+    }
+
+    .player2Loc{
+        background-color: red;
+        content: "B";
+
+    }
+
+    .player3Loc{
+        background-color: yellow;
+        content: "C";
+
+    }
+    .player4Loc{
+        background-color: green;
+        content: "C";
+
     }
 
 /* game right column: */

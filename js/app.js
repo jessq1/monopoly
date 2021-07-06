@@ -9,12 +9,9 @@ const allPlayerArr =[player1,player2,player3,player4]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let plCount, currentPlayer, player1fund, player2fund, player3fund, player4fund, player1plot, player2plot, player3plot, player4plot, player1Steps, player2Steps, player3Steps, player4Steps, turn, turnId, winner, diceNum, currentLocation; 
+let plCount, currentPlayer, player1plot, player2plot, player3plot, player4plot, turn, turnId, winner, diceNum, currentLocation; 
 let BoardCellsArr =[]
-let  playerArr = []
-let  playersSteps = []
-let playersLocations = []
-let playersFund = []
+let playerArr = []
 
 
 
@@ -146,7 +143,6 @@ BoardCellsArr[37]=new BoardCells(document.getElementById('cell37'),"Avenue 37", 
 BoardCellsArr[38]=new BoardCells(document.getElementById('cell38'),"Avenue 38", "$200", null, null, 50, 70, 100, 200, 100, 200)
 BoardCellsArr[39]=new BoardCells(document.getElementById('cell39'),"Avenue 39", "$200", null, null, 50, 70, 100, 200, 100, 200)
 
-console.log(BoardCellsArr)
 
 // chances cards as objects:
 
@@ -157,22 +153,16 @@ console.log(BoardCellsArr)
 // init()
 
 function init(){
-  // player1fund = initialFund;
-  // player2fund = initialFund;
-  // player3fund = initialFund;
-  // player4fund = initialFund;
+
+
   // player1plot = [];
   // player2plot = [];
   // player3plot = [];
   // player4plot = [];
-  // player1Steps = 0
-  // player2Steps = 0
-  // player3Steps = 0
-  // player4Steps = 0
+
   turn = 0;
   winner = null;
   diceNum = null;
-  playersLocationsArr = []
   currentLocation = BoardCellsArr[0]
 
   for (let i = 0; i < plCount; i++) {
@@ -181,12 +171,16 @@ function init(){
     // playersSteps[i] = 0
     // playersLocationsArr[i]=BoardCellsArr[0]
     // playersFund[i] = initialFund
+    playerArr[i].location.cellEl.classList.add("player" + (i+1) +"Loc")
   }
   
+
   turnId=turn%playerArr.length
   currentPlayer = playerArr[turnId].name
 
   console.log(playerArr)
+  console.log(BoardCellsArr)
+
 }
 
 function rollDice() {
@@ -212,12 +206,14 @@ function takeTurn(){
 
 
 function play() {
+  playerArr[turnId].location.cellEl.classList.remove("player"+(turnId+1)+"Loc")
+
   playerArr[turnId].location = BoardCellsArr[playerArr[turnId].steps%40]
   currentLocation = BoardCellsArr[playerArr[turnId].steps%40]
 
-  currentLocation.className = "player"+(turnId+1)+"Loc"
+  playerArr[turnId].location.cellEl.classList.add("player"+(turnId+1)+"Loc")
 
-  console.log
+
 
   if (playerArr[turnId].steps%40 == 0){
     playerArr[turnId].fund += 200
