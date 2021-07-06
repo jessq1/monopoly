@@ -167,10 +167,7 @@ function init(){
 
   for (let i = 0; i < plCount; i++) {
     playerArr[i] = new players(allPlayerArr[i], initialFund,0,BoardCellsArr[0], [], "playing")
-    // playerArr[i] = allPlayerArr[i];
-    // playersSteps[i] = 0
-    // playersLocationsArr[i]=BoardCellsArr[0]
-    // playersFund[i] = initialFund
+ 
     playerArr[i].location.cellEl.classList.add("player" + (i+1) +"Loc")
   }
   
