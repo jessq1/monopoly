@@ -9,7 +9,7 @@ const allPlayerArr =[player1,player2,player3,player4]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let plCount, currentPlayer, turn, turnId, winner, diceNum, currentLocation, currentPrice; 
+let plCount, currentPlayer, turn, turnId, winner, diceNum, currentLocation; 
 let BoardCellsArr =[]
 let playerArr = []
 let chanceCardsArr = []
@@ -39,6 +39,8 @@ const denyBuyBtn = document.getElementById('denyBuyBtn');
 const rentBtn = document.getElementById('rentBtn');
 const buyWrapper = document.getElementById('buyWrapper');
 const RentWrapper = document.getElementById('RentWrapper');
+const buyMsg = document.getElementById('buyMsg');
+const RentMsg = document.getElementById('RentMsg');
 
 
 
@@ -329,12 +331,30 @@ function freeParking(){
 function buyOrRent(){
   if (playerArr[turnId].location.owner == null){
     buyWrapper.classList.toggle("show");
-
+    buyMsg.innerText = `This lot is for sale! Do you want to buy it for ${playerArr[turnId].location.price}?`
   } else if (playerArr[turnId].location.owner == playerArr[turnId].name){
     buyWrapper.classList.toggle("show");
-
+    if (playerArr[turnId].location.level == 1){
+      buyMsg.innerText = `Do you want to add a building for ${playerArr[turnId].location.price2}?`
+    } if (playerArr[turnId].location.level == 2){
+      buyMsg.innerText = `Do you want to add a highrise for ${playerArr[turnId].location.price3}?`
+    }
   } else {
     RentWrapper.classList.toggle("show");
+    if (playerArr[turnId].location.level == 1){
+      RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner}, you have to pay ${playerArr[turnId].location.rent1}.`
+      adjustFund(-playerArr[turnId].location.price)
+      // playerArr[turnId].location.owner.
+    } else if (playerArr[turnId].location.level == 2){
+      RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner}, you have to pay ${playerArr[turnId].location.rent2}.`
+      adjustFund(-playerArr[turnId].location.price)
+
+
+    } else if (playerArr[turnId].location.level == 3){
+      RentMsg.innerText = `This lot is owned by ${playerArr[turnId].location.owner}, you have to pay ${playerArr[turnId].location.rent3}.`
+      adjustFund(-playerArr[turnId].location.price)
+
+    }
 
   }
   
@@ -342,10 +362,20 @@ function buyOrRent(){
 }
 
 function buyLand(){
-  playerArr[turnId].estate.push(playerArr[turnId].location)
-  playerArr[turnId].location.owner = playerArr[turnId].name
-  // adjustFund(playerArr[turnId].location.)
+  if (playerArr[turnId].location.level == 0){
+    playerArr[turnId].estate.push(playerArr[turnId].location)
+    playerArr[turnId].location.owner = playerArr[turnId]
+    adjustFund(playerArr[turnId].location.price)
+    playerArr[turnId].location.level = 1
+  } else if (playerArr[turnId].location.level = 1){
+    adjustFund(playerArr[turnId].location.price2)
+    playerArr[turnId].location.level = 2
+  }else if (playerArr[turnId].location.level = 2){
+    adjustFund(playerArr[turnId].location.price3)
+    playerArr[turnId].location.level = 3
+  }
   console.log(playerArr)
+  // end turn!
 }
 
 
