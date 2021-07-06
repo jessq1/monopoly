@@ -71,6 +71,11 @@ const outOfGameWrapper = document.getElementById('outOfGameWrapper');
 const outOfGameMsg = document.getElementById('outOfGameMsg');
 const outOfGameBtn = document.getElementById('outOfGameBtn');
 
+// Chance card function screen
+const chanceCardWrapper = document.getElementById('chanceCardWrapper');
+const chanceCardMsg = document.getElementById('chanceCardMsg');
+const drawCardBtn = document.getElementById('drawCardBtn');
+
 
 // overall items
 const homePage = document.querySelector("div.home");
