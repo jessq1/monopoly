@@ -173,7 +173,7 @@ function init(){
   
 
   turnId=turn%playerArr.length
-  currentPlayer = playerArr[turnId].name
+  // currentPlayer = playerArr[turnId].name
 
   console.log(playerArr)
   console.log(BoardCellsArr)
@@ -196,7 +196,7 @@ function rollDice() {
 
 
 function takeTurn(){
-  
+  currentPlayer = playerArr[turnId].name
   playerMsg.innerText = `It's ${currentPlayer}'s turn now`
   
 }
@@ -214,14 +214,17 @@ function play() {
 
   if (playerArr[turnId].steps%40 == 0){
     playerArr[turnId].fund += 200
+    passGo()
   } else if (playerArr[turnId].steps%40 == 6 || playerArr[turnId].steps%40%40 == 27 || playerArr[turnId].steps%40== 0){
     drawChance()
   } else if (playerArr[turnId].steps%40==10 || playerArr[turnId].steps%40 == 30){
     inJail()
   } else if (playerArr[turnId].steps%40==16){
     playerArr[turnId].fund -= 200
+    illegalParking()
   } else if (playerArr[turnId].steps%40==20){
     playerArr[turnId].fund = playerArr[turnId].fund
+    freeParking()
   } else {
     buyOrRent()
   }
@@ -230,17 +233,39 @@ function play() {
 
   turn += 1
   turnId=turn%playerArr.length;
+
+  takeTurn()
 }
 
-function drawChance(){
 
+
+function passGo(){
+
+}
+
+
+
+function drawChance(){
+  
 }
 
 function inJail(){
   playerArr[turnId].steps=10
 }
 
+function illegalParking(){
+
+}
+
+function freeParking(){
+
+}
+
+
 function buyOrRent(){
+  let popup = document.getElementById("buyOrRentWrapper");
+  popup.classList.toggle("show");
+
 
 }
 
