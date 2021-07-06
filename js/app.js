@@ -12,6 +12,7 @@ const allPlayerArr =[player1,player2,player3,player4]
 let plCount, currentPlayer, player1plot, player2plot, player3plot, player4plot, turn, turnId, winner, diceNum, currentLocation; 
 let BoardCellsArr =[]
 let playerArr = []
+let chanceCardsArr = []
 
 
 
@@ -145,8 +146,25 @@ BoardCellsArr[39]=new BoardCells(document.getElementById('cell39'),"Avenue 39", 
 
 
 // chances cards as objects:
+class Cards {
+  constructor(msg, action){
+    this.msg = msg;
+    this.action = action;
 
+  }
+}
 
+chanceCardsArr[0] = new Cards("add $100",function(){ adjustFund(100);})
+chanceCardsArr[1] = new Cards("add $200",function(){ adjustFund(200);})
+chanceCardsArr[2] = new Cards("add $500",function(){ adjustFund(500);})
+chanceCardsArr[3] = new Cards("lost $100",function(){ adjustFund(-100);})
+chanceCardsArr[4] = new Cards("lost $200",function(){ adjustFund(-200);})
+chanceCardsArr[5] = new Cards("lost $300",function(){ adjustFund(-300);})
+chanceCardsArr[6] = new Cards("add $100",function(){ adjustFund(100);})
+chanceCardsArr[7] = new Cards("add $300",function(){ adjustFund(300);})
+chanceCardsArr[8] = new Cards("add $500",function(){ adjustFund(500);})
+chanceCardsArr[9] = new Cards("Go to Jail",function(){ inJail();})
+chanceCardsArr[10] = new Cards("Go to Jail",function(){ inJail();})
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -269,3 +287,7 @@ function buyOrRent(){
 
 }
 
+
+function adjustFund(x){
+  playerArr[turnId].fund += x
+}
