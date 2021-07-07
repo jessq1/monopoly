@@ -5,12 +5,14 @@
 body {
 	background: #fffdfd;
 	margin: 0px;
+  font-family: 'Mulish', sans-serif;;
 }
 
 button{
   border:0px;
   padding: 10px 10px;
   border-radius: 10px;
+  font-family: 'Mulish', sans-serif;;
 
 }
 
@@ -27,6 +29,10 @@ div.home {
 
 #playGame {
     font-size: 20px;
+}
+h1{
+  font-family: 'Zen Tokyo Zoo', cursive;
+  font-size: 70px;
 }
 
     /* Home Page Selection */
@@ -145,13 +151,15 @@ div.home {
 
 /* game right column: */
 
-/* #gameSum{
+#gameSum{
     grid-column-start: 3;
     grid-row-start: 1;
-    border: 1px solid ;
-    width: 15vw
-
-} */
+    /* border: 1px solid ; */
+    width: 15vw;
+    text-align: center;
+    align-self: center;
+    font-size: 3vh;
+}
 
 #backToHome{
   grid-column-start: 3;
@@ -169,12 +177,13 @@ div.home {
         border: indigo 1px solid;
         text-align: center;
         border-radius: 6px;
-        padding: 8px 0;
+        padding: 8px;
         position: absolute;
         z-index: 1;
-        bottom: 50%;
+        bottom: 35%;
         left: 50%;
         margin-left: -80px;
+        
       }
 
       .dice-wrapper.show {
@@ -198,31 +207,37 @@ div.home {
         background-image: url("/asset/dice-1.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
     .dice2{
         background-image: url("/asset/dice-2.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
     .dice3{
         background-image: url("/asset/dice-3.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
     .dice4{
         background-image: url("/asset/dice-4.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
     .dice5{
         background-image: url("/asset/dice-5.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
     .dice6{
         background-image: url("/asset/dice-6.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
 
 /* others: */

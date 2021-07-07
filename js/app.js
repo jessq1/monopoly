@@ -87,7 +87,8 @@ const player4Stats = document.getElementById('player4Stats');
 
 let playersStatsArr = [player1Stats,player2Stats,player3Stats,player4Stats]
 
-
+//Summary tab:
+const gameSum = document.getElementById('gameSum');
 
 // overall items
 const homePage = document.querySelector("div.home");
@@ -372,7 +373,7 @@ function rollDice() {
 function renderTurn(){
   currentPlayer = playerArr[turnId].name
   playerMsg.innerText = `It's ${currentPlayer}'s turn now`
-  
+  gameSum.innerText = `${currentPlayer} is playing`
 }
 
 
