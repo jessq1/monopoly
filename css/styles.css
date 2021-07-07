@@ -59,7 +59,11 @@ div.home {
 .playerStats {
     grid-column-start: 1;
     border: 1px solid ;
-    width: 15vw
+    width: 15vw;
+    visibility: hidden;
+}
+.playerStats.show {
+  visibility: visible;
 }
 
     /* monopoly board */

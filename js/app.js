@@ -78,6 +78,13 @@ const drawCardBtn = document.getElementById('drawCardBtn');
 const chanceCardImg = document.getElementById('chanceCardImg');
 const confirmCardBtn = document.getElementById('confirmCardBtn');
 
+//player stats tab:
+const player1Stats = document.getElementById('player1Stats');
+const player2Stats = document.getElementById('player2Stats');
+const player3Stats = document.getElementById('player3Stats');
+const player4Stats = document.getElementById('player4Stats');
+
+let playersStatsArr = [player1Stats,player2Stats,player3Stats,player4Stats]
 
 
 // overall items
@@ -293,14 +300,22 @@ function init(){
     playerArr[i] = new players(allPlayerArr[i], initialFund,0,BoardCellsArr[0], [], "playing")
  
     playerArr[i].location.cellEl.classList.add("player" + (i+1) +"Loc")
+    playersStatsArr[i].classList.add("show")
   }
   
-
+  renderPlayerStats()
   turnId=turn%playerArr.length
-
+  
   // console.log(playerArr)
   // console.log(BoardCellsArr)
+  
+}
 
+function renderPlayerStats(){
+  for (let i=0;i<playerArr.length;i++){
+    playersStatsArr[i].innerText = "Player Name: " + playerArr[i].name + '\n'+ "Player fund: " + playerArr[i].fund +'\n'+ "Player current location: " + playerArr[i].location.name + '\n'+ "Player estate: " + playerArr[i].estate + '\n'+ "Player status: " + playerArr[i].status
+
+  }
 }
 
 function showDice(){
@@ -383,13 +398,14 @@ function endRound(){
       inJail()
     }
   }
-
+  renderPlayerStats()
   renderTurn()
 }
 
 function outOfGame(){
   outOfGameWrapper.classList.toggle("show");
   outOfGameMsg.innerText = `${playerArr[turnId].name} is out of the game!`
+  playerArr[turnId].status = "Out of Game"
 }
 function isWinner(x){
   winnerWrapper.classList.toggle("show");
@@ -522,13 +538,13 @@ function buyLand(){
   if (playerArr[turnId].location.level == 0){
     playerArr[turnId].estate.push(playerArr[turnId].location)
     playerArr[turnId].location.owner = playerArr[turnId]
-    adjustFund(playerArr[turnId].location.price)
+    adjustFund(-playerArr[turnId].location.price)
     playerArr[turnId].location.level = 1
   } else if (playerArr[turnId].location.level = 1){
-    adjustFund(playerArr[turnId].location.price2)
+    adjustFund(-playerArr[turnId].location.price2)
     playerArr[turnId].location.level = 2
   }else if (playerArr[turnId].location.level = 2){
-    adjustFund(playerArr[turnId].location.price3)
+    adjustFund(-playerArr[turnId].location.price3)
     playerArr[turnId].location.level = 3
   }
   console.log(playerArr)
