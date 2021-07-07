@@ -1,18 +1,28 @@
 *{
-    /* background-color: black; */
+    background-color: 
+    #484d9e;
 }
 
 body {
-	background: #fffdfd;
 	margin: 0px;
+  font-family: 'Mulish', sans-serif;
+  color: white;
 }
 
+button{
+  border:0px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-family: 'Mulish', sans-serif;
+  color: white;
+  background-color: #f0aa07;
+}
 
 /* ------------------------------------------------------ Home Page CSS -----------------------------------------------------*/
 
 div.home {
     text-align: center;
-    margin: 50px;
+    margin: 8vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,6 +31,11 @@ div.home {
 
 #playGame {
     font-size: 20px;
+}
+h1{
+  font-family: 'Zen Tokyo Zoo', cursive;
+  font-size: 80px;
+  font-weight: 100;
 }
 
     /* Home Page Selection */
@@ -32,34 +47,50 @@ div.home {
     .playerNumOption{
     width: 20vw;
     height: 30vh;
-    font-size: 50px;
-    border: black 1px solid;
+    font-size: 20vh;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25vh;
+    border: white 1px solid;
+    border-radius: 35%;
     margin: 5%;
     }
+    .playerNumOption:hover{
+      background-color: #f0aa07;
+      }
 
     #playGame{
         display: none;
+        margin-top: 2vh;
     }
   
 
 /* -------------------------------------------------------- gamepage CSS -------------------------------------------------------*/
 
 
-/* game left column: */
-
 .gamePage {
-    display: none;
-    grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-    justify-items: center;
-    padding: 15px;
-    height: 100vh;
+  display: none;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  justify-items: center;
+  padding: 15px;
+  height: 90vh;
+  margin: 5vh;
 }
 
+
+/* game left column: */
 .playerStats {
     grid-column-start: 1;
-    border: 1px solid ;
-    width: 15vw
+    /* border: 1px solid ; */
+    width: 15vw;
+    visibility: hidden;
+    text-align: center;
+    align-self: center;
+}
+.playerStats.show {
+  visibility: visible;
 }
 
     /* monopoly board */
@@ -67,9 +98,6 @@ div.home {
     #board {
         grid-column-start: 2;
         grid-row-start: 1;
-        /* border: 1px solid black; */
-        /* border-spacing: 2px; */
-        /* margin: 0px; */
         float: left;
     }
     
@@ -138,39 +166,40 @@ div.home {
 #gameSum{
     grid-column-start: 3;
     grid-row-start: 1;
-    border: 1px solid ;
-    width: 15vw
-
+    /* border: 1px solid ; */
+    width: 15vw;
+    text-align: center;
+    align-self: center;
+    font-size: 3vh;
 }
 
 #backToHome{
   grid-column-start: 3;
-  height: 100PX;
-  
+  grid-row-start: 5;
+  height: 50px;
 }
 
     /* roll dice: */
 
-    /* .dice-wrapper{
-        grid-column-start: 3;
-        grid-row-start: 2;
-        margin: 20px;
-    } */
-
     .dice-wrapper {
         visibility: hidden;
-        width: 160px;
-        background-color: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
+        width: 200px;
+        height: 300px;
+        /* background-color: rgb(255, 255, 255); */
+        /* color: rgb(0, 0, 0); */
         border: indigo 1px solid;
-        text-align: center;
-        border-radius: 6px;
-        padding: 8px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        padding: 8px;
         position: absolute;
         z-index: 1;
-        bottom: 50%;
+        bottom: 35%;
         left: 50%;
-        margin-left: -80px;
+        padding: 20px;
+        margin-left: -15vh;
       }
 
       .dice-wrapper.show {
@@ -194,59 +223,72 @@ div.home {
         background-image: url("/asset/dice-1.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
     .dice2{
         background-image: url("/asset/dice-2.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
     .dice3{
         background-image: url("/asset/dice-3.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
+        
+ 
     }
     .dice4{
         background-image: url("/asset/dice-4.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
     .dice5{
         background-image: url("/asset/dice-5.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
     .dice6{
         background-image: url("/asset/dice-6.svg");
         height: 50px;
         width: 50px;
+        margin: auto;
     }
 
 /* others: */
 
 /* buyOrRent Pop up Window: */
-.buyWrapper {
-    visibility: hidden;
-    width: 160px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: indigo 1px solid;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 50%;
-    left: 50%;
-    margin-left: -80px;
-  }
+.buyWrapper, .RentWrapper,.PassGoWrapper, .illegalParkingWrapper,.freeParkingWrapper,.freeParkingWrapper,.inJailWrapper,.outOfJailWrapper ,.winnerWrapper,.outOfGameWrapper {
+  visibility: hidden;
+  width: 200px;
+  height: 300px;
+  /* background-color: rgb(255, 255, 255); */
+  /* color: rgb(0, 0, 0); */
+  border: indigo 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 35%;
+  left: 50%;
+  padding: 20px;
+  margin-left: -15vh;
+}    
   
-  .buyWrapper.show {
+  .buyWrapper.show, .RentWrapper.show,.PassGoWrapper.show,  .illegalParkingWrapper.show,.freeParkingWrapper.show,.freeParkingWrapper.show,.inJailWrapper.show,.outOfJailWrapper.show ,.winnerWrapper.show, .outOfGameWrapper.show  {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
-  }
+  } 
 
-  .RentWrapper {
+  /* .RentWrapper {
     visibility: hidden;
     width: 160px;
     background-color: rgb(255, 255, 255);
@@ -260,13 +302,13 @@ div.home {
     bottom: 50%;
     left: 50%;
     margin-left: -80px;
-  }
+  } */
   
-  .RentWrapper.show {
+  /* .RentWrapper.show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
-  }
+  } */
 
   @-webkit-keyframes fadeIn {
     from {opacity: 0;}
@@ -279,7 +321,7 @@ div.home {
   }
 
 /* Pass Go Pop up Window: */
-.PassGoWrapper {
+/* .PassGoWrapper {
     visibility: hidden;
     width: 160px;
     background-color: rgb(255, 255, 255);
@@ -293,16 +335,16 @@ div.home {
     bottom: 50%;
     left: 50%;
     margin-left: -80px;
-  }
+  } */
   
-  .PassGoWrapper.show {
+  /* .PassGoWrapper.show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
-  }
+  } */
 
   /* Illegal Parking Pop up Window: */
-.illegalParkingWrapper {
+/* .illegalParkingWrapper {
     visibility: hidden;
     width: 160px;
     background-color: rgb(255, 255, 255);
@@ -316,16 +358,16 @@ div.home {
     bottom: 50%;
     left: 50%;
     margin-left: -80px;
-  }
+  } */
   
-  .illegalParkingWrapper.show {
+  /* .illegalParkingWrapper.show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
-  }
+  } */
 
     /* Free Parking Pop up Window: */
-.freeParkingWrapper {
+/* .freeParkingWrapper {
   visibility: hidden;
   width: 160px;
   background-color: rgb(255, 255, 255);
@@ -339,16 +381,16 @@ div.home {
   bottom: 50%;
   left: 50%;
   margin-left: -80px;
-}
+} */
 
-.freeParkingWrapper.show {
+/* .freeParkingWrapper.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
-}
+} */
 
 /* Free Parking Pop up Window: */
-.freeParkingWrapper {
+/* .freeParkingWrapper {
   visibility: hidden;
   width: 160px;
   background-color: rgb(255, 255, 255);
@@ -362,16 +404,16 @@ div.home {
   bottom: 50%;
   left: 50%;
   margin-left: -80px;
-}
+} */
 
-.freeParkingWrapper.show {
+/* .freeParkingWrapper.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
-}
+} */
 
 /* In Jail Pop up Window: */
-.inJailWrapper {
+/* .inJailWrapper {
   visibility: hidden;
   width: 160px;
   background-color: rgb(255, 255, 255);
@@ -385,32 +427,172 @@ div.home {
   bottom: 50%;
   left: 50%;
   margin-left: -80px;
+} */
+
+/* .inJailWrapper.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+} */
+
+/* Out of Jail Pop up Window: */
+/* .outOfJailWrapper {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: indigo 1px solid;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -80px;
+} */
+
+/* .outOfJailWrapper.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+} */
+
+/* Winner Pop up Window: */
+/* .winnerWrapper {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: indigo 1px solid;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -80px;
+} */
+
+/* .winnerWrapper.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+} */
+/* Winner Pop up Window: */
+/* .outOfGameWrapper {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: indigo 1px solid;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -80px;
+} */
+
+/* .outOfGameWrapper.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+} */
+
+/* Chance Card Pop up Window: */
+.chanceCardWrapper {
+  visibility: hidden;
+  width: 200px;
+  height: 300px;
+  border: indigo 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 35%;
+  left: 50%;
+  padding: 20px;
+  margin-left: -15vh;
 }
 
-.inJailWrapper.show {
+.chanceCardWrapper.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
 }
-
-/* Out of Jail Pop up Window: */
-.outOfJailWrapper {
+.card0{
+  background-image: url("/asset/chance-card-0.svg");
+  height: 88px;
+  width: 66px;
+}
+.card1{
+  background-image: url("/asset/chance-card-1.svg");
+  height: 88px;
+  width: 66px;
+  margin: auto;
+}
+.card2{
+  background-image: url("/asset/chance-card-2.svg");
+  height: 88px;
+  width: 66px;
+  margin: auto;
+}
+.card3{
+  background-image: url("/asset/chance-card-3.svg");
+  height: 88px;
+  width: 66px;
+  margin: auto;
+}
+.card4{
+  background-image: url("/asset/chance-card-4.svg");
+  height: 88px;
+  width: 66px;
+  margin: auto;
+}
+.card5{
+  background-image: url("/asset/chance-card-5.svg");
+  height: 88px;
+  width: 66px;
+  margin: auto;
+}
+.card6{
+  background-image: url("/asset/chance-card-6.svg");
+  height: 88px;
+  width: 66px;
+  margin: auto;
+}
+.card7{
+  background-image: url("/asset/chance-card-7.svg");
+  height: 88px;
+  width: 66px;
+  margin: auto;
+}
+.card8{
+  background-image: url("/asset/chance-card-8.svg");
+  height: 88px;
+  width: 66px;
+  margin: auto;
+}
+.card9{
+  background-image: url("/asset/chance-card-9.svg");
+  height: 88px;
+  width: 66px;
+  margin: auto;
+}
+.CardBtns{
+  border: 0px;
   visibility: hidden;
-  width: 160px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border: indigo 1px solid;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 50%;
-  left: 50%;
-  margin-left: -80px;
 }
 
-.outOfJailWrapper.show {
+.CardBtns.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s

@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="./css/styles.css">
 	<script defer src="./js/app.js"></script>
     <title>Monopoly</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;1,700&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -17,11 +19,11 @@
     <div class="playerNumSelection">
         <h2>Select how many people is playing:</h2>
         <div class="select-playerNum">
-              <label class="playerNumOption" id="2ppl">2</label>
+              <div class="playerNumOption" id="2ppl">2</div>
   
-              <label class="playerNumOption"id="3ppl">3</label>
+              <div class="playerNumOption"id="3ppl">3</div>
   
-              <label class="playerNumOption" id="4ppl">4</label>
+              <div class="playerNumOption" id="4ppl">4</div>
         
         </div>
     </div>
@@ -103,24 +105,27 @@
         </div>
         </div>
 
-    <div id=gameSum> sum 
-    </div>
+    <div id=gameSum></div>
+    <button id=backToHome>Back to Home</button>
     
     <div class="dice-wrapper" id="diceWrapper">
             <div id="playerMsg"></div>
             <div class="dice6" id=firstDie></div>
             <div class="dice5" id=secondDie></div>
             <p id="rollDiceMsg"></p>
+           
             <button class="diceBtns" id="rollDiceBtn">Roll Dice</button> 
-            <button class="diceBtns" id="confirmDiceBtn">OK</button>
+            <br><button class="diceBtns" id="confirmDiceBtn">OK</button>
+       
     </div>
 
-    <button id=backToHome>Back to Home</button>
         
     <div class="buyWrapper" id="buyWrapper">
         <p id="buyMsg">Buy</p>
+        <div>
         <button class="buyBtn" id="confirmBuyBtn">Yes</button>
         <button class="buyBtn" id="denyBuyBtn">No</button>
+    </div>
     </div>
 
     <div class="RentWrapper" id="RentWrapper">
@@ -151,7 +156,22 @@
         <p id="outOfJailMsg">You served your time. Now it's time to play. </p>
         <br><button class="outOfJailBtn" id="outOfJailBtn">Finally!</button>
     </div>
+    <div class="winnerWrapper" id="winnerWrapper">
+        <p id="WinnerMsg"></p>
+        <br><button class="winnerBtn" id="winnerBtn">Yay</button>
+    </div>
+    <div class="outOfGameWrapper" id="outOfGameWrapper">
+        <p id="outOfGameMsg"></p>
+        <br><button class="outOfGameBtn" id="outOfGameBtn">Oh no</button>
+    </div>
 
+    <div class="chanceCardWrapper" id="chanceCardWrapper">
+        <p id="chanceCardMsg"></p>
+        <div id="chanceCardImg"></div>
+        <br><button class="CardBtns" id="drawCardBtn">Draw Card</button>
+        <br><button class="CardBtns" id="confirmCardBtn">OK</button>
+
+    </div>
 </div>
 
 </body>

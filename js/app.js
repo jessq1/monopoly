@@ -9,10 +9,11 @@ const allPlayerArr =[player1,player2,player3,player4]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let plCount, currentPlayer, turn, turnId, winner, diceNum, currentLocation; 
+let plCount, currentPlayer, turn, turnId, winner, diceNum, currentLocation,player1plot,player2plot,player13lot,player4plot; 
 let BoardCellsArr =[]
 let playerArr = []
 let chanceCardsArr = []
+let playersEstateArr = []
 
 
 
@@ -61,6 +62,33 @@ const inJailBtn = document.getElementById('inJailBtn');
 const outOfJailWrapper = document.getElementById('outOfJailWrapper');
 const outOfJailBtn = document.getElementById('outOfJailBtn');
 
+// Winner function screen
+const winnerWrapper = document.getElementById('winnerWrapper');
+const WinnerMsg = document.getElementById('WinnerMsg');
+const winnerBtn = document.getElementById('winnerBtn');
+
+// Out of game function screen
+const outOfGameWrapper = document.getElementById('outOfGameWrapper');
+const outOfGameMsg = document.getElementById('outOfGameMsg');
+const outOfGameBtn = document.getElementById('outOfGameBtn');
+
+// Chance card function screen
+const chanceCardWrapper = document.getElementById('chanceCardWrapper');
+const chanceCardMsg = document.getElementById('chanceCardMsg');
+const drawCardBtn = document.getElementById('drawCardBtn');
+const chanceCardImg = document.getElementById('chanceCardImg');
+const confirmCardBtn = document.getElementById('confirmCardBtn');
+
+//player stats tab:
+const player1Stats = document.getElementById('player1Stats');
+const player2Stats = document.getElementById('player2Stats');
+const player3Stats = document.getElementById('player3Stats');
+const player4Stats = document.getElementById('player4Stats');
+
+let playersStatsArr = [player1Stats,player2Stats,player3Stats,player4Stats]
+
+//Summary tab:
+const gameSum = document.getElementById('gameSum');
 
 // overall items
 const homePage = document.querySelector("div.home");
@@ -79,16 +107,14 @@ PlayerNumSel.addEventListener("click", (evt) => {
     plCount = evt.target.id.charAt(0)
     playBtn.style.display = "flex"
 
-
   });
   
 playBtn.addEventListener("click", () => {
     homePage.style.display = 'none'
     gamePage.style.display = 'grid'
     init()
-    takeTurn()
+    renderTurn()
     showDice()
-    // console.log(diceWrapper)
   })
   
   homeBtn.addEventListener("click", ()=>{
@@ -96,6 +122,18 @@ playBtn.addEventListener("click", () => {
     gamePage.style.display = 'none'
     playBtn.style.display = "none"
     init()
+    hideDice()
+    hideChance()
+    buyWrapper.classList.remove('show')
+    RentWrapper.classList.remove('show')
+    PassGoWrapper.classList.remove('show')
+    illegalParkingWrapper.classList.remove('show')
+    freeParkingWrapper.classList.remove('show')
+    outOfJailWrapper.classList.remove('show')
+    winnerWrapper.classList.remove('show')
+    outOfGameWrapper.classList.remove('show')
+    chanceCardWrapper.classList.remove('show')
+
   })
   
   diceBtn.addEventListener("click", () => {
@@ -116,37 +154,51 @@ playBtn.addEventListener("click", () => {
 denyBuyBtn.addEventListener("click", () => {
   showHideBuy()
   endRound()
-  showDice()
 })
 
 rentBtn.addEventListener("click", () => {
   showHideRent()
   endRound()
-  showDice()
 })
 
 PassGoBtn.addEventListener("click", () => {
   showHidePassGo()
   endRound()
-  showDice()
 })
 
 illegalParkingBtn.addEventListener("click", () => {
   showHideillegalParking()
   endRound()
-  showDice()
 })
 
 freeParkingBtn.addEventListener("click", () => {
   showHideFreeParking()
   endRound()
-  showDice()
 })
 
 inJailBtn.addEventListener("click", () => {
-  showHideFreeParking()
+  showHideInJail()
   endRound()
+})
+outOfJailBtn.addEventListener("click", () => {
+  showHideOutOfJail()
   showDice()
+})
+
+winnerBtn.addEventListener("click", () => {
+
+})
+outOfGameBtn.addEventListener("click", () => {
+  turn -= 1
+  outOfGame()
+  endRound()
+})
+drawCardBtn.addEventListener("click", () => {
+  drawChance()
+})
+confirmCardBtn.addEventListener("click", () => {
+  hideChance()
+  endRound()
 })
 
 
@@ -244,7 +296,6 @@ chanceCardsArr[6] = new Cards("add $100",function(){ adjustFund(100);})
 chanceCardsArr[7] = new Cards("add $300",function(){ adjustFund(300);})
 chanceCardsArr[8] = new Cards("add $500",function(){ adjustFund(500);})
 chanceCardsArr[9] = new Cards("Go to Jail",function(){ inJail();})
-chanceCardsArr[10] = new Cards("Go to Jail",function(){ inJail();})
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -253,10 +304,10 @@ chanceCardsArr[10] = new Cards("Go to Jail",function(){ inJail();})
 function init(){
 
 
-  // player1plot = [];
-  // player2plot = [];
-  // player3plot = [];
-  // player4plot = [];
+  player1plot = [];
+  player2plot = [];
+  player3plot = [];
+  player4plot = [];
 
   turn = 0;
   winner = null;
@@ -267,14 +318,25 @@ function init(){
     playerArr[i] = new players(allPlayerArr[i], initialFund,0,BoardCellsArr[0], [], "playing")
  
     playerArr[i].location.cellEl.classList.add("player" + (i+1) +"Loc")
+    playersStatsArr[i].classList.add("show")
+    playersEstateArr[i] = []
   }
   
-
+  renderPlayerStats()
   turnId=turn%playerArr.length
-
+  
   // console.log(playerArr)
   // console.log(BoardCellsArr)
+  
+}
 
+function renderPlayerStats(){
+  let currentPlayers = []
+  for (let i=0;i<playerArr.length;i++){
+    
+    playersStatsArr[i].innerText = "Name: " + playerArr[i].name + '\n'+ "Fund: " + playerArr[i].fund +'\n'+ "Current location: " + playerArr[i].location.name + '\n'+ "Estate: " + playersEstateArr[i]  + '\n'+ "Status: " + playerArr[i].status
+ 
+  }
 }
 
 function showDice(){
@@ -285,6 +347,7 @@ function showDice(){
 function hideDice(){
   diceWrapper.classList.remove("show");
   confirmDiceBtn.classList.remove("show");
+  diceBtn.classList.remove("show");
 }
 
 
@@ -306,14 +369,15 @@ function rollDice() {
 }
 
 
-function takeTurn(){
+function renderTurn(){
   currentPlayer = playerArr[turnId].name
   playerMsg.innerText = `It's ${currentPlayer}'s turn now`
-  
+  gameSum.innerText = `${currentPlayer} is playing`
 }
 
 
 function play() {
+  
   playerArr[turnId].location.cellEl.classList.remove("player"+(turnId+1)+"Loc")
 
   playerArr[turnId].location = BoardCellsArr[playerArr[turnId].steps%40]
@@ -327,7 +391,7 @@ function play() {
     playerArr[turnId].fund += 200
     passGo()
   } else if (playerArr[turnId].steps%40 == 6 || playerArr[turnId].steps%40%40 == 27 || playerArr[turnId].steps%40== 0){
-    drawChance()
+    showChance()
   } else if (playerArr[turnId].steps%40==10 || playerArr[turnId].steps%40 == 30){
     inJail()
   } else if (playerArr[turnId].steps%40==16){
@@ -344,9 +408,30 @@ function play() {
 }
 
 function endRound(){
-  turn += 1
-  turnId=turn%playerArr.length;
-  takeTurn()
+  if (playerArr.length == 1){
+    isWinner(playerArr[0])
+  } else {
+    turn += 1
+    turnId=turn%playerArr.length;
+    
+    if(playerArr[turnId].status == "playing"){
+      showDice()
+    } else {
+      inJail()
+    }
+  }
+  renderPlayerStats()
+  renderTurn()
+}
+
+function outOfGame(){
+  outOfGameWrapper.classList.toggle("show");
+  outOfGameMsg.innerText = `${playerArr[turnId].name} is out of the game!`
+  playerArr[turnId].status = "Out of Game"
+}
+function isWinner(x){
+  winnerWrapper.classList.toggle("show");
+  WinnerMsg.innerText = `${x} is the winner!`
 }
 
 function passGo(){
@@ -361,21 +446,42 @@ function showHidePassGo(){
 
 
 function drawChance(){
+  drawCardBtn.classList.remove("show");
+  let cardIndex= Math.floor(Math.random()*10)
+  let card = chanceCardsArr[cardIndex]
   
+  chanceCardImg.className = "card"+cardIndex
+  chanceCardMsg.innerText = `You selected card number ${cardIndex}. ${card.msg}`
+  card.action
+  confirmCardBtn.classList.add("show");
+
+}
+function showChance(){
+  chanceCardWrapper.classList.toggle("show");
+  drawCardBtn.classList.add("show");
+  confirmCardBtn.classList.remove("show");
+}
+function hideChance(){
+  chanceCardWrapper.classList.remove("show");
+  drawCardBtn.classList.remove("show");
+  confirmCardBtn.classList.remove("show");
 }
 
+
 function inJail(){
-  if (playerArr[turnId].status = "playing") {
+  if (playerArr[turnId].status == "playing") {
     showHideInJail()
     playerArr[turnId].status = "in Jail"
     playerArr[turnId].steps=10
     inJailMsg.innerText = "You are in Jail! Have to pause for 3 rounds"
-  } else if (playerArr[turnId].status = "in Jail"){
+  } else if (playerArr[turnId].status == "in Jail"){
+    hideDice()
     showHideInJail()
     playerArr[turnId].status = "Jail Time - two more round"
     playerArr[turnId].steps=10
     inJailMsg.innerText = "You are in Jail! Have to pause for 2 more rounds"
-  } else if (playerArr[turnId].status = "Jail Time - two more round"){
+  } else if (playerArr[turnId].status == "Jail Time - two more round"){
+    hideDice()
     showHideInJail()
     playerArr[turnId].status = "Jail Time - one more round"
     playerArr[turnId].steps=10
@@ -455,14 +561,15 @@ function buyOrRent(){
 function buyLand(){
   if (playerArr[turnId].location.level == 0){
     playerArr[turnId].estate.push(playerArr[turnId].location)
+    playersEstateArr[turnId].push(playerArr[turnId].location.name)
     playerArr[turnId].location.owner = playerArr[turnId]
-    adjustFund(playerArr[turnId].location.price)
+    adjustFund(-playerArr[turnId].location.price)
     playerArr[turnId].location.level = 1
   } else if (playerArr[turnId].location.level = 1){
-    adjustFund(playerArr[turnId].location.price2)
+    adjustFund(-playerArr[turnId].location.price2)
     playerArr[turnId].location.level = 2
-  }else if (playerArr[turnId].location.level = 2){
-    adjustFund(playerArr[turnId].location.price3)
+  } else if (playerArr[turnId].location.level = 2){
+    adjustFund(-playerArr[turnId].location.price3)
     playerArr[turnId].location.level = 3
   }
   console.log(playerArr)
@@ -473,4 +580,8 @@ function buyLand(){
 
 function adjustFund(x){
   playerArr[turnId].fund += x
+  if (playerArr[turnId].fund < 0){
+    outOfGame()
+    playerArr.splice(turnId, 1)
+  } 
 }
