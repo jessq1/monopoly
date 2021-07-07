@@ -508,8 +508,6 @@ h1{
   visibility: hidden;
   width: 200px;
   height: 300px;
-  /* background-color: rgb(255, 255, 255); */
-  /* color: rgb(0, 0, 0); */
   border: indigo 1px solid;
   display: flex;
   flex-direction: column;
