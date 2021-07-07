@@ -7,6 +7,12 @@ body {
 	margin: 0px;
 }
 
+button{
+  border:0px;
+  padding: 10px 10px;
+  border-radius: 10px;
+
+}
 
 /* ------------------------------------------------------ Home Page CSS -----------------------------------------------------*/
 
@@ -45,22 +51,25 @@ div.home {
 /* -------------------------------------------------------- gamepage CSS -------------------------------------------------------*/
 
 
-/* game left column: */
-
 .gamePage {
-    display: none;
-    grid-template-columns: 15% 85%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-    justify-items: center;
-    padding: 15px;
-    height: 100vh;
+  display: none;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  justify-items: center;
+  padding: 15px;
+  height: 90vh;
+  margin: 5vh;
 }
 
+
+/* game left column: */
 .playerStats {
     grid-column-start: 1;
-    border: 1px solid ;
+    /* border: 1px solid ; */
     width: 15vw;
     visibility: hidden;
+    text-align: center;
+    align-self: center;
 }
 .playerStats.show {
   visibility: visible;
@@ -71,9 +80,6 @@ div.home {
     #board {
         grid-column-start: 2;
         grid-row-start: 1;
-        /* border: 1px solid black; */
-        /* border-spacing: 2px; */
-        /* margin: 0px; */
         float: left;
     }
     
@@ -148,10 +154,9 @@ div.home {
 } */
 
 #backToHome{
-  grid-column-start: 1;
+  grid-column-start: 3;
   grid-row-start: 5;
-  height: 100PX;
-  
+  height: 50px;
 }
 
     /* roll dice: */
@@ -223,7 +228,21 @@ div.home {
 /* others: */
 
 /* buyOrRent Pop up Window: */
-.buyWrapper {
+.buyWrapper, .RentWrapper,.PassGoWrapper, .illegalParkingWrapper,.freeParkingWrapper,.freeParkingWrapper,.inJailWrapper,.outOfJailWrapper ,.winnerWrapper,.outOfGameWrapper {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: indigo 1px solid;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  left: 50%;
+  margin-left: -80px;
+}    {
     visibility: hidden;
     width: 160px;
     background-color: rgb(255, 255, 255);
@@ -239,13 +258,21 @@ div.home {
     margin-left: -80px;
   }
   
-  .buyWrapper.show {
+  .buyWrapper.show, .RentWrapper.show,.PassGoWrapper.show,  .illegalParkingWrapper.show,.freeParkingWrapper.show,.freeParkingWrapper.show,.inJailWrapper.show,.outOfJailWrapper.show ,.winnerWrapper.show, .outOfGameWrapper.show  {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  } {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }    {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
   }
 
-  .RentWrapper {
+  /* .RentWrapper {
     visibility: hidden;
     width: 160px;
     background-color: rgb(255, 255, 255);
@@ -259,13 +286,13 @@ div.home {
     bottom: 50%;
     left: 50%;
     margin-left: -80px;
-  }
+  } */
   
-  .RentWrapper.show {
+  /* .RentWrapper.show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
-  }
+  } */
 
   @-webkit-keyframes fadeIn {
     from {opacity: 0;}
@@ -278,7 +305,7 @@ div.home {
   }
 
 /* Pass Go Pop up Window: */
-.PassGoWrapper {
+/* .PassGoWrapper {
     visibility: hidden;
     width: 160px;
     background-color: rgb(255, 255, 255);
@@ -292,16 +319,16 @@ div.home {
     bottom: 50%;
     left: 50%;
     margin-left: -80px;
-  }
+  } */
   
-  .PassGoWrapper.show {
+  /* .PassGoWrapper.show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
-  }
+  } */
 
   /* Illegal Parking Pop up Window: */
-.illegalParkingWrapper {
+/* .illegalParkingWrapper {
     visibility: hidden;
     width: 160px;
     background-color: rgb(255, 255, 255);
@@ -315,16 +342,16 @@ div.home {
     bottom: 50%;
     left: 50%;
     margin-left: -80px;
-  }
+  } */
   
-  .illegalParkingWrapper.show {
+  /* .illegalParkingWrapper.show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
-  }
+  } */
 
     /* Free Parking Pop up Window: */
-.freeParkingWrapper {
+/* .freeParkingWrapper {
   visibility: hidden;
   width: 160px;
   background-color: rgb(255, 255, 255);
@@ -338,16 +365,16 @@ div.home {
   bottom: 50%;
   left: 50%;
   margin-left: -80px;
-}
+} */
 
-.freeParkingWrapper.show {
+/* .freeParkingWrapper.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
-}
+} */
 
 /* Free Parking Pop up Window: */
-.freeParkingWrapper {
+/* .freeParkingWrapper {
   visibility: hidden;
   width: 160px;
   background-color: rgb(255, 255, 255);
@@ -361,16 +388,16 @@ div.home {
   bottom: 50%;
   left: 50%;
   margin-left: -80px;
-}
+} */
 
-.freeParkingWrapper.show {
+/* .freeParkingWrapper.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
-}
+} */
 
 /* In Jail Pop up Window: */
-.inJailWrapper {
+/* .inJailWrapper {
   visibility: hidden;
   width: 160px;
   background-color: rgb(255, 255, 255);
@@ -384,16 +411,16 @@ div.home {
   bottom: 50%;
   left: 50%;
   margin-left: -80px;
-}
+} */
 
-.inJailWrapper.show {
+/* .inJailWrapper.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
-}
+} */
 
 /* Out of Jail Pop up Window: */
-.outOfJailWrapper {
+/* .outOfJailWrapper {
   visibility: hidden;
   width: 160px;
   background-color: rgb(255, 255, 255);
@@ -407,16 +434,16 @@ div.home {
   bottom: 50%;
   left: 50%;
   margin-left: -80px;
-}
+} */
 
-.outOfJailWrapper.show {
+/* .outOfJailWrapper.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
-}
+} */
 
 /* Winner Pop up Window: */
-.winnerWrapper {
+/* .winnerWrapper {
   visibility: hidden;
   width: 160px;
   background-color: rgb(255, 255, 255);
@@ -430,15 +457,15 @@ div.home {
   bottom: 50%;
   left: 50%;
   margin-left: -80px;
-}
+} */
 
-.winnerWrapper.show {
+/* .winnerWrapper.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
-}
+} */
 /* Winner Pop up Window: */
-.outOfGameWrapper {
+/* .outOfGameWrapper {
   visibility: hidden;
   width: 160px;
   background-color: rgb(255, 255, 255);
@@ -452,13 +479,13 @@ div.home {
   bottom: 50%;
   left: 50%;
   margin-left: -80px;
-}
+} */
 
-.outOfGameWrapper.show {
+/* .outOfGameWrapper.show {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
-}
+} */
 
 /* Chance Card Pop up Window: */
 .chanceCardWrapper {

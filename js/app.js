@@ -124,6 +124,16 @@ playBtn.addEventListener("click", () => {
     init()
     hideDice()
     hideChance()
+    buyWrapper.classList.remove('show')
+    RentWrapper.classList.remove('show')
+    PassGoWrapper.classList.remove('show')
+    illegalParkingWrapper.classList.remove('show')
+    freeParkingWrapper.classList.remove('show')
+    outOfJailWrapper.classList.remove('show')
+    winnerWrapper.classList.remove('show')
+    outOfGameWrapper.classList.remove('show')
+    chanceCardWrapper.classList.remove('show')
+
   })
   
   diceBtn.addEventListener("click", () => {
