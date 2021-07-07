@@ -1,6 +1,5 @@
 *{
-    background-color: 
-    #484d9e;
+    background-color: #484d9e;
 }
 
 body {
@@ -128,7 +127,7 @@ h1{
     } 
 
     .player1Loc{
-        background-image: url("../../asset/dice-1.svg");
+        background-image: url("./asset/dice-1.svg");
         background-size: 2vh;
         background-repeat: no-repeat;
         background-position-y: 1vh;
@@ -137,7 +136,7 @@ h1{
     }
 
     .player2Loc{
-        background-image: url("../../asset/dice-1.svg");
+        background-image: url("./asset/dice-1.svg");
         background-size: 2vh;
         background-repeat: no-repeat;
         background-position-y: 3vh;
@@ -146,14 +145,14 @@ h1{
     }
 
     .player3Loc{
-        background-image: url("../../asset/dice-1.svg");
+        background-image: url("./asset/dice-1.svg");
         background-size: 2vh;
         background-repeat: no-repeat;
         background-position-y: 5vh;
         background-blend-mode: screen;
     }
     .player4Loc{
-        background-image: url("../../asset/dice-1.svg");
+        background-image: url("./asset/dice-1.svg");
         background-size: 2vh;
         background-repeat: no-repeat;
         background-position-y: 7vh;
@@ -220,19 +219,19 @@ h1{
       }
     
     .dice1{
-        background-image: url("/asset/dice-1.svg");
+        background-image: url("./asset/dice-1.svg");
         height: 50px;
         width: 50px;
         margin: auto;
     }
     .dice2{
-        background-image: url("/asset/dice-2.svg");
+        background-image: url("./asset/dice-2.svg");
         height: 50px;
         width: 50px;
         margin: auto;
     }
     .dice3{
-        background-image: url("/asset/dice-3.svg");
+        background-image: url("./asset/dice-3.svg");
         height: 50px;
         width: 50px;
         margin: auto;
@@ -240,19 +239,19 @@ h1{
  
     }
     .dice4{
-        background-image: url("/asset/dice-4.svg");
+        background-image: url("./asset/dice-4.svg");
         height: 50px;
         width: 50px;
         margin: auto;
     }
     .dice5{
-        background-image: url("/asset/dice-5.svg");
+        background-image: url("./asset/dice-5.svg");
         height: 50px;
         width: 50px;
         margin: auto;
     }
     .dice6{
-        background-image: url("/asset/dice-6.svg");
+        background-image: url("./asset/dice-6.svg");
         height: 50px;
         width: 50px;
         margin: auto;
