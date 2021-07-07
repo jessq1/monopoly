@@ -88,6 +88,7 @@ const player4Stats = document.getElementById('player4Stats');
 let playersStatsArr = [player1Stats,player2Stats,player3Stats,player4Stats]
 
 
+
 // overall items
 const homePage = document.querySelector("div.home");
 const gamePage = document.querySelector(".gamePage");
@@ -166,6 +167,10 @@ freeParkingBtn.addEventListener("click", () => {
 inJailBtn.addEventListener("click", () => {
   showHideInJail()
   endRound()
+})
+outOfJailBtn.addEventListener("click", () => {
+  showHideOutOfJail()
+  showDice()
 })
 
 winnerBtn.addEventListener("click", () => {
@@ -314,10 +319,16 @@ function init(){
 }
 
 function renderPlayerStats(){
+  let currentPlayers = []
   for (let i=0;i<playerArr.length;i++){
     
-    playersStatsArr[i].innerText = "Player Name: " + playerArr[i].name + '\n'+ "Player fund: " + playerArr[i].fund +'\n'+ "Player current location: " + playerArr[i].location.name + '\n'+ "Player estate: " + playersEstateArr[i]  + '\n'+ "Player status: " + playerArr[i].status
+    playersStatsArr[i].innerText = "Name: " + playerArr[i].name + '\n'+ "Fund: " + playerArr[i].fund +'\n'+ "Current location: " + playerArr[i].location.name + '\n'+ "Estate: " + playersEstateArr[i]  + '\n'+ "Status: " + playerArr[i].status
+ 
   }
+
+
+
+
 }
 
 function showDice(){
@@ -455,11 +466,13 @@ function inJail(){
     playerArr[turnId].steps=10
     inJailMsg.innerText = "You are in Jail! Have to pause for 3 rounds"
   } else if (playerArr[turnId].status == "in Jail"){
+    hideDice()
     showHideInJail()
     playerArr[turnId].status = "Jail Time - two more round"
     playerArr[turnId].steps=10
     inJailMsg.innerText = "You are in Jail! Have to pause for 2 more rounds"
   } else if (playerArr[turnId].status == "Jail Time - two more round"){
+    hideDice()
     showHideInJail()
     playerArr[turnId].status = "Jail Time - one more round"
     playerArr[turnId].steps=10
