@@ -483,3 +483,63 @@ div.home {
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s
 }
+.card0{
+  background-image: url("/asset/chance-card-0.svg");
+  height: 88px;
+  width: 66px;
+}
+.card1{
+  background-image: url("/asset/chance-card-1.svg");
+  height: 88px;
+  width: 66px;
+}
+.card2{
+  background-image: url("/asset/chance-card-2.svg");
+  height: 88px;
+  width: 66px;
+}
+.card3{
+  background-image: url("/asset/chance-card-3.svg");
+  height: 88px;
+  width: 66px;
+}
+.card4{
+  background-image: url("/asset/chance-card-4.svg");
+  height: 88px;
+  width: 66px;
+}
+.card5{
+  background-image: url("/asset/chance-card-5.svg");
+  height: 88px;
+  width: 66px;
+}
+.card6{
+  background-image: url("/asset/chance-card-6.svg");
+  height: 88px;
+  width: 66px;
+}
+.card7{
+  background-image: url("/asset/chance-card-7.svg");
+  height: 88px;
+  width: 66px;
+}
+.card8{
+  background-image: url("/asset/chance-card-8.svg");
+  height: 88px;
+  width: 66px;
+}
+.card9{
+  background-image: url("/asset/chance-card-9.svg");
+  height: 88px;
+  width: 66px;
+}
+.CardBtns{
+  border: 0px;
+  visibility: hidden;
+}
+
+.CardBtns.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}

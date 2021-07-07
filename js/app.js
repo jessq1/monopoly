@@ -75,6 +75,9 @@ const outOfGameBtn = document.getElementById('outOfGameBtn');
 const chanceCardWrapper = document.getElementById('chanceCardWrapper');
 const chanceCardMsg = document.getElementById('chanceCardMsg');
 const drawCardBtn = document.getElementById('drawCardBtn');
+const chanceCardImg = document.getElementById('chanceCardImg');
+const confirmCardBtn = document.getElementById('confirmCardBtn');
+
 
 
 // overall items
@@ -93,7 +96,6 @@ const playerMsg = document.getElementById('playerMsg');
 PlayerNumSel.addEventListener("click", (evt) => {
     plCount = evt.target.id.charAt(0)
     playBtn.style.display = "flex"
-
 
   });
   
@@ -164,6 +166,13 @@ winnerBtn.addEventListener("click", () => {
 outOfGameBtn.addEventListener("click", () => {
   turn -= 1
   outOfGame()
+  endRound()
+})
+drawCardBtn.addEventListener("click", () => {
+  drawChance()
+})
+confirmCardBtn.addEventListener("click", () => {
+  hideChance()
   endRound()
 })
 
@@ -262,7 +271,6 @@ chanceCardsArr[6] = new Cards("add $100",function(){ adjustFund(100);})
 chanceCardsArr[7] = new Cards("add $300",function(){ adjustFund(300);})
 chanceCardsArr[8] = new Cards("add $500",function(){ adjustFund(500);})
 chanceCardsArr[9] = new Cards("Go to Jail",function(){ inJail();})
-chanceCardsArr[10] = new Cards("Go to Jail",function(){ inJail();})
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -346,7 +354,7 @@ function play() {
     playerArr[turnId].fund += 200
     passGo()
   } else if (playerArr[turnId].steps%40 == 6 || playerArr[turnId].steps%40%40 == 27 || playerArr[turnId].steps%40== 0){
-    drawChance()
+    showChance()
   } else if (playerArr[turnId].steps%40==10 || playerArr[turnId].steps%40 == 30){
     inJail()
   } else if (playerArr[turnId].steps%40==16){
@@ -400,8 +408,27 @@ function showHidePassGo(){
 
 
 function drawChance(){
+  drawCardBtn.classList.remove("show");
+  let cardIndex= Math.floor(Math.random()*10)
+  let card = chanceCardsArr[cardIndex]
   
+  chanceCardImg.className = "card"+cardIndex
+  chanceCardMsg.innerText = `You selected card number ${cardIndex}. ${card.msg}`
+  card.action
+  confirmCardBtn.classList.add("show");
+
 }
+function showChance(){
+  chanceCardWrapper.classList.toggle("show");
+  drawCardBtn.classList.add("show");
+  confirmCardBtn.classList.remove("show");
+}
+function hideChance(){
+  chanceCardWrapper.classList.remove("show");
+  drawCardBtn.classList.remove("show");
+  confirmCardBtn.classList.remove("show");
+}
+
 
 function inJail(){
   if (playerArr[turnId].status = "playing") {
