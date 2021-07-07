@@ -9,7 +9,7 @@
     <title>Monopoly</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;1,700&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -19,11 +19,11 @@
     <div class="playerNumSelection">
         <h2>Select how many people is playing:</h2>
         <div class="select-playerNum">
-              <label class="playerNumOption" id="2ppl">2</label>
+              <div class="playerNumOption" id="2ppl">2</div>
   
-              <label class="playerNumOption"id="3ppl">3</label>
+              <div class="playerNumOption"id="3ppl">3</div>
   
-              <label class="playerNumOption" id="4ppl">4</label>
+              <div class="playerNumOption" id="4ppl">4</div>
         
         </div>
     </div>
@@ -113,15 +113,19 @@
             <div class="dice6" id=firstDie></div>
             <div class="dice5" id=secondDie></div>
             <p id="rollDiceMsg"></p>
+           
             <button class="diceBtns" id="rollDiceBtn">Roll Dice</button> 
             <br><button class="diceBtns" id="confirmDiceBtn">OK</button>
+       
     </div>
 
         
     <div class="buyWrapper" id="buyWrapper">
         <p id="buyMsg">Buy</p>
+        <div>
         <button class="buyBtn" id="confirmBuyBtn">Yes</button>
         <button class="buyBtn" id="denyBuyBtn">No</button>
+    </div>
     </div>
 
     <div class="RentWrapper" id="RentWrapper">
