@@ -122,6 +122,8 @@ playBtn.addEventListener("click", () => {
     gamePage.style.display = 'none'
     playBtn.style.display = "none"
     init()
+    hideDice()
+    hideChance()
   })
   
   diceBtn.addEventListener("click", () => {
@@ -325,10 +327,6 @@ function renderPlayerStats(){
     playersStatsArr[i].innerText = "Name: " + playerArr[i].name + '\n'+ "Fund: " + playerArr[i].fund +'\n'+ "Current location: " + playerArr[i].location.name + '\n'+ "Estate: " + playersEstateArr[i]  + '\n'+ "Status: " + playerArr[i].status
  
   }
-
-
-
-
 }
 
 function showDice(){
@@ -339,6 +337,7 @@ function showDice(){
 function hideDice(){
   diceWrapper.classList.remove("show");
   confirmDiceBtn.classList.remove("show");
+  diceBtn.classList.remove("show");
 }
 
 
