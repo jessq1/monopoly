@@ -115,7 +115,6 @@ playBtn.addEventListener("click", () => {
     init()
     renderTurn()
     showDice()
-    // console.log(diceWrapper)
   })
   
   homeBtn.addEventListener("click", ()=>{
