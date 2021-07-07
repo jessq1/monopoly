@@ -9,10 +9,11 @@ const allPlayerArr =[player1,player2,player3,player4]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let plCount, currentPlayer, turn, turnId, winner, diceNum, currentLocation; 
+let plCount, currentPlayer, turn, turnId, winner, diceNum, currentLocation,player1plot,player2plot,player13lot,player4plot; 
 let BoardCellsArr =[]
 let playerArr = []
 let chanceCardsArr = []
+let playersEstateArr = []
 
 
 
@@ -286,10 +287,10 @@ chanceCardsArr[9] = new Cards("Go to Jail",function(){ inJail();})
 function init(){
 
 
-  // player1plot = [];
-  // player2plot = [];
-  // player3plot = [];
-  // player4plot = [];
+  player1plot = [];
+  player2plot = [];
+  player3plot = [];
+  player4plot = [];
 
   turn = 0;
   winner = null;
@@ -301,6 +302,7 @@ function init(){
  
     playerArr[i].location.cellEl.classList.add("player" + (i+1) +"Loc")
     playersStatsArr[i].classList.add("show")
+    playersEstateArr[i] = []
   }
   
   renderPlayerStats()
@@ -313,8 +315,8 @@ function init(){
 
 function renderPlayerStats(){
   for (let i=0;i<playerArr.length;i++){
-    playersStatsArr[i].innerText = "Player Name: " + playerArr[i].name + '\n'+ "Player fund: " + playerArr[i].fund +'\n'+ "Player current location: " + playerArr[i].location.name + '\n'+ "Player estate: " + playerArr[i].estate + '\n'+ "Player status: " + playerArr[i].status
-
+    
+    playersStatsArr[i].innerText = "Player Name: " + playerArr[i].name + '\n'+ "Player fund: " + playerArr[i].fund +'\n'+ "Player current location: " + playerArr[i].location.name + '\n'+ "Player estate: " + playersEstateArr[i]  + '\n'+ "Player status: " + playerArr[i].status
   }
 }
 
@@ -447,17 +449,17 @@ function hideChance(){
 
 
 function inJail(){
-  if (playerArr[turnId].status = "playing") {
+  if (playerArr[turnId].status == "playing") {
     showHideInJail()
     playerArr[turnId].status = "in Jail"
     playerArr[turnId].steps=10
     inJailMsg.innerText = "You are in Jail! Have to pause for 3 rounds"
-  } else if (playerArr[turnId].status = "in Jail"){
+  } else if (playerArr[turnId].status == "in Jail"){
     showHideInJail()
     playerArr[turnId].status = "Jail Time - two more round"
     playerArr[turnId].steps=10
     inJailMsg.innerText = "You are in Jail! Have to pause for 2 more rounds"
-  } else if (playerArr[turnId].status = "Jail Time - two more round"){
+  } else if (playerArr[turnId].status == "Jail Time - two more round"){
     showHideInJail()
     playerArr[turnId].status = "Jail Time - one more round"
     playerArr[turnId].steps=10
@@ -537,13 +539,14 @@ function buyOrRent(){
 function buyLand(){
   if (playerArr[turnId].location.level == 0){
     playerArr[turnId].estate.push(playerArr[turnId].location)
+    playersEstateArr[turnId].push(playerArr[turnId].location.name)
     playerArr[turnId].location.owner = playerArr[turnId]
     adjustFund(-playerArr[turnId].location.price)
     playerArr[turnId].location.level = 1
   } else if (playerArr[turnId].location.level = 1){
     adjustFund(-playerArr[turnId].location.price2)
     playerArr[turnId].location.level = 2
-  }else if (playerArr[turnId].location.level = 2){
+  } else if (playerArr[turnId].location.level = 2){
     adjustFund(-playerArr[turnId].location.price3)
     playerArr[turnId].location.level = 3
   }
