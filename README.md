@@ -16,10 +16,16 @@ III. Pseudocode:
     5. Objects:
     6. Functions:
 
-IV. Nice-to-haves:
+IV.Technologies Used:
+    1. HTML
+    2. CSS
+    3. JavaScript
+    4. Adobe Illustrator
+
+V. Nex-Steps:
     1. Sounds effect for winning
-    2. CSS for enhanced UI (icons, graphics)
+    2. CSS for enhanced UI (icons, graphics)s
     3. Mobile version
 
-V.References:
+VI.References:
     1. 
