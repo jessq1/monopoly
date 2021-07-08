@@ -18,6 +18,9 @@
     color: white;
     background-color: #f0aa07;
   }
+  button:hover{
+    background-color: #c468c7;
+  }
   
   /* ------------------------------------------------------ Home Page CSS -----------------------------------------------------*/
   
@@ -85,6 +88,7 @@ h1{
 .playerStats {
     grid-column-start: 1;
     border: #f0aa07 1px solid ;
+    background-color: #696ebd;
     border-radius: 5vh;
     padding: 2vh;
     width: 15vw;
@@ -170,6 +174,7 @@ h1{
     grid-column-start: 3;
     grid-row-start: 1;
     border: #f0aa07 1px solid ;
+    background-color: #696ebd;
     border-radius: 5vh;
     padding: 2vh;
     width: 15vw;
