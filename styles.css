@@ -96,6 +96,7 @@ h1{
     text-align: center;
     align-self: center;
 }
+
 .playerStats.show {
   visibility: visible;
 }
@@ -110,10 +111,10 @@ h1{
     
     #boardWrapper{
         display: grid;
-        grid-template-columns: 88px repeat(9,66px) 88px;
-        grid-template-rows: 88px repeat(9,66px) 88px;
-        column-gap: 2px;
-        row-gap: 2px;
+        grid-template-columns: 150px repeat(9,66px) 150px;
+        grid-template-rows: 150px repeat(9,66px) 150px;
+        column-gap: 10px;
+        row-gap: 10px;
     }
     
     
@@ -124,46 +125,101 @@ h1{
     }
     
     .top, .bottom{
-        width: 66px;
-        height: 88px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 30px,88px,30px;
+      align-items: center;
+      justify-content: center;
+    }
+    .top>img, .bottom>img{
+      width: 66px;
+      height: 88px;
+      margin: 0px;
+      grid-row-start: 2;
     }
     .left, .right{
         width: 66px;
-        height:88px;
+        height:150px;
         transform: rotate(-90deg) translate(-66px); 
         transform-origin: top left;
+        display: grid;
+        grid-template-columns: 30px,88px,30px;
+        align-items: center;
+        justify-content: center;
     } 
+    .left>img, .right>img{
+      width: 66px;
+      height: 88px;
+      margin: 0px;
+    }
+    .corner >img{
+      width: 88px;
+    }
 
+    .corner{
+      justify-content:center;
+      align-self: center;
+      text-align: center;
+    }
+    .playerProperty{
+      height: 30px;
+      border-radius: 5px;
+      border: #f0aa07 1px solid;
+      margin: 2px;
+    }
+    .playerProperty.level1{
+      background-image: url("./asset/player-building-1.svg");
+      background-size: 35px;
+      background-repeat: no-repeat;
+    }
+    .playerProperty.level2{
+      background-image: url("./asset/player-building-2.svg");
+      background-size: 35px;
+      background-repeat: no-repeat;
+    }
+    .playerProperty.level3{
+      background-image: url("./asset/player-building-3.svg");
+      background-size: 35px;
+      background-repeat: no-repeat;
+    }
+
+    .empty{
+      height: 30px;
+      border-radius: 5px;
+      border: #f0aa07 1px solid;
+
+      margin: 2px;
+    }
+
+    .playersLoc{
+      height: 30px;
+      border: #f0aa07 1px solid;
+      border-radius: 5px;
+      margin: 2px;
+    }
     .playersLoc.player1Loc{
       background-image: url("./asset/player-icons-1.svg");
-      background-size: 8vh;
+      background-size: 35px;
       background-repeat: no-repeat;
-      background-position-y: 0px;
-      height: 8vh;
 
     }
 
     .playersLoc.player2Loc{
       background-image: url("./asset/player-icons-2.svg");
-      background-size: 8vh;
+      background-size: 35px;
       background-repeat: no-repeat;
-      background-position-y: 0px;
-      height: 8vh;
     }
 
     .playersLoc.player3Loc{
       background-image: url("./asset/player-icons-3.svg");
-      background-size: 8vh;
+      background-size: 35px;
       background-repeat: no-repeat;
-      background-position-y: 0px;
-      height: 8vh;
     }
     .playersLoc.player4Loc{
         background-image: url("./asset/player-icons-4.svg");
-        background-size: 8vh;
+        background-size: 35px;
         background-repeat: no-repeat;
-        background-position-y: 0px;
-        height: 8vh;
+
     }
     /* .playersLoc.player1Loc.player2Loc.player3Loc.player4Loc{
       background-image: url("./asset/dice-1.svg");
@@ -200,8 +256,6 @@ h1{
         visibility: hidden;
         width: 200px;
         height: 300px;
-        /* background-color: rgb(255, 255, 255); */
-        /* color: rgb(0, 0, 0); */
         border: #f0aa07 1px solid;
         display: flex;
         flex-direction: column;
