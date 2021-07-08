@@ -219,7 +219,7 @@ class players {
 // 40 plots as classes and objects:
 
 class BoardCells {
-  constructor(cellEl, name, msgText, groupNumber, owner, rent1, rent2, rent3, price, price2, price3, level) {
+  constructor(cellEl, name, msgText, groupNumber, owner, rent1, rent2, rent3, price, price2, price3, level,playerLocEl) {
     this.cellEl = cellEl;
     this.name = name;
     this.msgText = msgText;
@@ -232,49 +232,50 @@ class BoardCells {
     this.price2 = price2;
     this.price3 = price3;
     this.level = level;
+    this.playerLocEl = playerLocEl;
   }
 }
 
-BoardCellsArr[0]=new BoardCells(document.getElementById('cell0'),"GO", "COLLECT $200 AS YOU PASS.")
-BoardCellsArr[1]=new BoardCells(document.getElementById('cell1'),"Avenue 1", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[2]=new BoardCells(document.getElementById('cell2'),"Avenue 2", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[3]=new BoardCells(document.getElementById('cell3'),"Avenue 3", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[4]=new BoardCells(document.getElementById('cell4'),"Avenue 4", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[5]=new BoardCells(document.getElementById('cell5'),"Avenue 5", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[6]=new BoardCells(document.getElementById('cell6'),"Chance", "SELECT A CHANCE CARD")
-BoardCellsArr[7]=new BoardCells(document.getElementById('cell7'),"Avenue 7", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[8]=new BoardCells(document.getElementById('cell8'),"Avenue 8", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[9]=new BoardCells(document.getElementById('cell9'),"Avenue 9", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[10]=new BoardCells(document.getElementById('cell10'),"JAIL")
-BoardCellsArr[11]=new BoardCells(document.getElementById('cell11'),"Avenue 11", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[12]=new BoardCells(document.getElementById('cell12'),"Avenue 12", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[13]=new BoardCells(document.getElementById('cell13'),"Avenue 13", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[14]=new BoardCells(document.getElementById('cell14'),"Avenue 14", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[15]=new BoardCells(document.getElementById('cell15'),"Avenue 15", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[16]=new BoardCells(document.getElementById('cell16'),"ILLEGAL PARKING", "$200 fine")
-BoardCellsArr[17]=new BoardCells(document.getElementById('cell17'),"Avenue 17", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[18]=new BoardCells(document.getElementById('cell18'),"Avenue 18", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[19]=new BoardCells(document.getElementById('cell19'),"Avenue 19", "$200", null, null, 50, 70, 100, 200, 100, 200,0)
-BoardCellsArr[20]=new BoardCells(document.getElementById('cell20'),"FREE PARKING", "$0")
-BoardCellsArr[21]=new BoardCells(document.getElementById('cell21'),"Avenue 21", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[22]=new BoardCells(document.getElementById('cell22'),"Avenue 22", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[23]=new BoardCells(document.getElementById('cell23'),"Avenue 23", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[24]=new BoardCells(document.getElementById('cell24'),"Avenue 24", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[25]=new BoardCells(document.getElementById('cell25'),"Avenue 25", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[26]=new BoardCells(document.getElementById('cell26'),"Avenue 26", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[27]=new BoardCells(document.getElementById('cell27'),"Chance", "SELECT A CHANCE CARD")
-BoardCellsArr[28]=new BoardCells(document.getElementById('cell28'),"Avenue 28", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[29]=new BoardCells(document.getElementById('cell29'),"Avenue 29", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[30]=new BoardCells(document.getElementById('cell30'),"Go to Jail")
-BoardCellsArr[31]=new BoardCells(document.getElementById('cell31'),"Avenue 31", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[32]=new BoardCells(document.getElementById('cell32'),"Avenue 32", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[33]=new BoardCells(document.getElementById('cell33'),"Avenue 33", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[34]=new BoardCells(document.getElementById('cell34'),"Avenue 34", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[35]=new BoardCells(document.getElementById('cell35'),"Chance", "SELECT A CHANCE CARD")
-BoardCellsArr[36]=new BoardCells(document.getElementById('cell36'),"Avenue 36", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[37]=new BoardCells(document.getElementById('cell37'),"Avenue 37", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[38]=new BoardCells(document.getElementById('cell38'),"Avenue 38", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
-BoardCellsArr[39]=new BoardCells(document.getElementById('cell39'),"Avenue 39", "$200", null, null, 50, 70, 100, 200, 100, 200, 0)
+BoardCellsArr[0]=new BoardCells(document.getElementById('cell0'),"GO", "COLLECT $200 AS YOU PASS.",null, null, null, null, null, null, null, null,null,document.getElementById('cell0-playersLoc'))
+BoardCellsArr[1]=new BoardCells(document.getElementById('cell1'),"Avenue 1", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell1-playersLoc'))
+BoardCellsArr[2]=new BoardCells(document.getElementById('cell2'),"Avenue 2", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell2-playersLoc'))
+BoardCellsArr[3]=new BoardCells(document.getElementById('cell3'),"Avenue 3", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell3-playersLoc'))
+BoardCellsArr[4]=new BoardCells(document.getElementById('cell4'),"Avenue 4", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell4-playersLoc'))
+BoardCellsArr[5]=new BoardCells(document.getElementById('cell5'),"Avenue 5", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell5-playersLoc'))
+BoardCellsArr[6]=new BoardCells(document.getElementById('cell6'),"Chance", "SELECT A CHANCE CARD",null, null, null, null, null, null, null, null, null,document.getElementById('cell6-playersLoc'))
+BoardCellsArr[7]=new BoardCells(document.getElementById('cell7'),"Avenue 7", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell7-playersLoc'))
+BoardCellsArr[8]=new BoardCells(document.getElementById('cell8'),"Avenue 8", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell8-playersLoc'))
+BoardCellsArr[9]=new BoardCells(document.getElementById('cell9'),"Avenue 9", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell9-playersLoc'))
+BoardCellsArr[10]=new BoardCells(document.getElementById('cell10'),"JAIL","GO TO JAIL",null, null, null, null, null, null, null, null, null,document.getElementById('cell10-playersLoc'))
+BoardCellsArr[11]=new BoardCells(document.getElementById('cell11'),"Avenue 11", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell11-playersLoc'))
+BoardCellsArr[12]=new BoardCells(document.getElementById('cell12'),"Avenue 12", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell12-playersLoc'))
+BoardCellsArr[13]=new BoardCells(document.getElementById('cell13'),"Avenue 13", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell13-playersLoc'))
+BoardCellsArr[14]=new BoardCells(document.getElementById('cell14'),"Avenue 14", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell14-playersLoc'))
+BoardCellsArr[15]=new BoardCells(document.getElementById('cell15'),"Avenue 15", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell15-playersLoc'))
+BoardCellsArr[16]=new BoardCells(document.getElementById('cell16'),"ILLEGAL PARKING", "$200 fine",null, null, null, null, null, null, null, null, null,document.getElementById('cell16-playersLoc'))
+BoardCellsArr[17]=new BoardCells(document.getElementById('cell17'),"Avenue 17", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell17-playersLoc'))
+BoardCellsArr[18]=new BoardCells(document.getElementById('cell18'),"Avenue 18", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell18-playersLoc'))
+BoardCellsArr[19]=new BoardCells(document.getElementById('cell19'),"Avenue 19", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell19-playersLoc'))
+BoardCellsArr[20]=new BoardCells(document.getElementById('cell20'),"FREE PARKING", "$0",null, null, null, null, null, null, null, null, null,document.getElementById('cell20-playersLoc'))
+BoardCellsArr[21]=new BoardCells(document.getElementById('cell21'),"Avenue 21", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell21-playersLoc'))
+BoardCellsArr[22]=new BoardCells(document.getElementById('cell22'),"Avenue 22", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell22-playersLoc'))
+BoardCellsArr[23]=new BoardCells(document.getElementById('cell23'),"Avenue 23", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell23-playersLoc'))
+BoardCellsArr[24]=new BoardCells(document.getElementById('cell24'),"Avenue 24", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell24-playersLoc'))
+BoardCellsArr[25]=new BoardCells(document.getElementById('cell25'),"Avenue 25", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell25-playersLoc'))
+BoardCellsArr[26]=new BoardCells(document.getElementById('cell26'),"Avenue 26", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell26-playersLoc'))
+BoardCellsArr[27]=new BoardCells(document.getElementById('cell27'),"Chance", "SELECT A CHANCE CARD",null, null, null, null, null, null, null, null, null,document.getElementById('cell27-playersLoc'))
+BoardCellsArr[28]=new BoardCells(document.getElementById('cell28'),"Avenue 28", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell28-playersLoc'))
+BoardCellsArr[29]=new BoardCells(document.getElementById('cell29'),"Avenue 29", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell29-playersLoc'))
+BoardCellsArr[30]=new BoardCells(document.getElementById('cell30'),"Go to Jail","GO TO JAIL",null, null, null, null, null, null, null, null, null,document.getElementById('cell30-playersLoc'))
+BoardCellsArr[31]=new BoardCells(document.getElementById('cell31'),"Avenue 31", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell31-playersLoc'))
+BoardCellsArr[32]=new BoardCells(document.getElementById('cell32'),"Avenue 32", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell32-playersLoc'))
+BoardCellsArr[33]=new BoardCells(document.getElementById('cell33'),"Avenue 33", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell33-playersLoc'))
+BoardCellsArr[34]=new BoardCells(document.getElementById('cell34'),"Avenue 34", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell34-playersLoc'))
+BoardCellsArr[35]=new BoardCells(document.getElementById('cell35'),"Chance", "SELECT A CHANCE CARD",null, null, null, null, null, null, null, null, null,document.getElementById('cell34-playersLoc'))
+BoardCellsArr[36]=new BoardCells(document.getElementById('cell36'),"Avenue 36", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell36-playersLoc'))
+BoardCellsArr[37]=new BoardCells(document.getElementById('cell37'),"Avenue 37", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell37-playersLoc'))
+BoardCellsArr[38]=new BoardCells(document.getElementById('cell38'),"Avenue 38", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell38-playersLoc'))
+BoardCellsArr[39]=new BoardCells(document.getElementById('cell39'),"Avenue 39", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell39-playersLoc'))
 
 
 // chances cards as objects:
@@ -317,7 +318,7 @@ function init(){
   for (let i = 0; i < plCount; i++) {
     playerArr[i] = new players(allPlayerArr[i], initialFund,0,BoardCellsArr[0], [], "playing")
  
-    playerArr[i].location.cellEl.classList.add("player" + (i+1) +"Loc")
+    playerArr[i].location.playerLocEl.classList.add("player" + (i+1) +"Loc")
     playersStatsArr[i].classList.add("show")
     playersEstateArr[i] = []
   }
@@ -326,7 +327,7 @@ function init(){
   turnId=turn%playerArr.length
   
   // console.log(playerArr)
-  // console.log(BoardCellsArr)
+  console.log(playerArr[0].location.playerLocEl)
   
 }
 
@@ -378,13 +379,13 @@ function renderTurn(){
 
 function play() {
   
-  playerArr[turnId].location.cellEl.classList.remove("player"+(turnId+1)+"Loc")
+  playerArr[turnId].location.playerLocEl.classList.remove("player"+(turnId+1)+"Loc")
 
   playerArr[turnId].location = BoardCellsArr[playerArr[turnId].steps%40]
   currentLocation = BoardCellsArr[playerArr[turnId].steps%40]
 
-  playerArr[turnId].location.cellEl.classList.add("player"+(turnId+1)+"Loc")
-
+  playerArr[turnId].location.playerLocEl.classList.add("player"+(turnId+1)+"Loc")
+console.log(playerArr[turnId].location.playerLocEl)
 
 
   if (playerArr[turnId].steps%40 == 0){
