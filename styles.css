@@ -1,25 +1,27 @@
 *{
-    background-color: #484d9e;
-}
-
-body {
-	margin: 0px;
-  font-family: 'Mulish', sans-serif;
-  color: white;
-}
-
-button{
-  border:0px;
-  padding: 10px 10px;
-  border-radius: 10px;
-  font-family: 'Mulish', sans-serif;
-  color: white;
-  background-color: #f0aa07;
-}
-
-/* ------------------------------------------------------ Home Page CSS -----------------------------------------------------*/
-
-div.home {
+    /* background-color: #484d9e; */
+  }
+  
+  body {
+    margin: 0px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: white;
+    background-image: url("./asset/BG.svg");
+    background-size: cover;
+  }
+  
+  button{
+    border:0px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: white;
+    background-color: #f0aa07;
+  }
+  
+  /* ------------------------------------------------------ Home Page CSS -----------------------------------------------------*/
+  
+  div.home {
     text-align: center;
     margin: 8vh;
     display: flex;
