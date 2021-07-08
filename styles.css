@@ -82,7 +82,9 @@ h1{
 /* game left column: */
 .playerStats {
     grid-column-start: 1;
-    /* border: 1px solid ; */
+    border: #f0aa07 1px solid ;
+    border-radius: 5vh;
+    padding: 2vh;
     width: 15vw;
     visibility: hidden;
     text-align: center;
@@ -165,7 +167,9 @@ h1{
 #gameSum{
     grid-column-start: 3;
     grid-row-start: 1;
-    /* border: 1px solid ; */
+    border: #f0aa07 1px solid ;
+    border-radius: 5vh;
+    padding: 2vh;
     width: 15vw;
     text-align: center;
     align-self: center;
@@ -186,12 +190,12 @@ h1{
         height: 300px;
         /* background-color: rgb(255, 255, 255); */
         /* color: rgb(0, 0, 0); */
-        border: indigo 1px solid;
+        border: #f0aa07 1px solid;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-radius: 15px;
+        border-radius: 5vh;
         padding: 8px;
         position: absolute;
         z-index: 1;
@@ -266,12 +270,12 @@ h1{
   height: 300px;
   /* background-color: rgb(255, 255, 255); */
   /* color: rgb(0, 0, 0); */
-  border: indigo 1px solid;
+  border: #f0aa07 2px solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 5vh;
   padding: 8px;
   position: absolute;
   z-index: 1;
@@ -507,12 +511,12 @@ h1{
   visibility: hidden;
   width: 200px;
   height: 300px;
-  border: indigo 1px solid;
+  border: #f0aa07 1px solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 5vh;
   padding: 8px;
   position: absolute;
   z-index: 1;
