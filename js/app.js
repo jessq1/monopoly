@@ -488,6 +488,7 @@ function inJail(){
     playerArr[turnId].steps=10
     inJailMsg.innerText = "You are in Jail! Have to pause for 1 more rounds"
   } else {
+    hideDice()
     showHideOutOfJail()
     playerArr[turnId].status = "playing"
   }

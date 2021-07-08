@@ -8,24 +8,24 @@ II. Wirframe<br>
        1. <img src="./asset/game-home-page.png" alt="home page" />
        2. <img src="./asset/game-page.png" alt="home page" />
 
-III. Pseudocode:
+III. Pseudocode:<br>
     1. Diagram: <img src="./asset/function-diagram.svg" alt="diagram" />
-    2. Define Constants: 
-    3. Define Variables:
-    4. Event-Listeners:
-    5. Objects:
-    6. Functions:
+    2. Define Constants: <br>
+    3. Define Variables:<br>
+    4. Event-Listeners:<br>
+    5. Objects:<br>
+    6. Functions:<br>
 
-IV.Technologies Used:
-    1. HTML
-    2. CSS
-    3. JavaScript
-    4. Adobe Illustrator
+IV.Technologies Used:<br>
+    1. HTML<br>
+    2. CSS<br>
+    3. JavaScript<br>
+    4. Adobe Illustrator<br>
 
-V. Nex-Steps:
-    1. Sounds effect for winning
-    2. CSS for enhanced UI (icons, graphics)s
-    3. Mobile version
+V. Nex-Steps:<br>
+    1. Sounds effect for winning<br>
+    2. CSS for enhanced UI (icons, graphics)s<br>
+    3. Mobile version<br>
 
-VI.References:
+VI.References:<br>
     1. 
