@@ -38,8 +38,8 @@ IV.Technologies Used:<br>
     3. JavaScript<br>
     4. Adobe Illustrator<br>
 
-V. Nex-Steps:<br>
-    1. CSS for enhanced UIs (icons, graphics)<br>
+V. Next-Steps:<br>
+    1. Adding animations<br>
     2. Sounds effect for winning<br>
     3. Mobile version<br>
 
