@@ -45,3 +45,4 @@ V. Nex-Steps:<br>
 
 VI.References:<br>
     1. Planet name generator: https://fantasynamegenerators.com/planet_names.php<br>
+    2. Assets developed by Jessq1. Visual reference from Pinterest: https://www.pinterest.com.mx/pin/833728949772455821/
