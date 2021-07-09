@@ -1,6 +1,6 @@
 # monopoly-the Space Version<br>
 0.Background:<br>
-    This is year 22000, where technologies allow human to explore the universe freely! As one of the first exploror of the universe, you have the chance to build up Real Estate in space! 
+    This is the year 22000, where technologies allow humans to explore the universe freely! As one of the first explorers of the universe, you have the chance to build up Real Estate in space!
 
 I. To play the game:<br>
     The game is published at https://jessq1.github.io/monopoly/<br>
