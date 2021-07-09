@@ -1,10 +1,10 @@
 /*-------------------------------- Constants --------------------------------*/
 
-const initialFund = 300 
-const player1 = "Player 1"
-const player2 = "Player 2"
-const player3 = "Player 3"
-const player4 = "Player 4"
+const initialFund = 1000 
+const player1 = "Driuq Z8"
+const player2 = "Nurn XWI"
+const player3 = "Strides X2W"
+const player4 = "Gniea X8N"
 const allPlayerArr =[player1,player2,player3,player4]
 
 
@@ -253,46 +253,46 @@ class BoardCells {
   }
 }
 
-BoardCellsArr[0]=new BoardCells(document.getElementById('cell0'),"GO", "COLLECT $200 AS YOU PASS.",null, null, null, null, null, null, null, null,null,document.getElementById('cell0-playersLoc'),null)
-BoardCellsArr[1]=new BoardCells(document.getElementById('cell1'),"Avenue 1", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell1-playersLoc'),document.getElementById('cell1-property'))
-BoardCellsArr[2]=new BoardCells(document.getElementById('cell2'),"Avenue 2", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell2-playersLoc'),document.getElementById('cell2-property'))
-BoardCellsArr[3]=new BoardCells(document.getElementById('cell3'),"Avenue 3", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell3-playersLoc'),document.getElementById('cell3-property'))
-BoardCellsArr[4]=new BoardCells(document.getElementById('cell4'),"Avenue 4", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell4-playersLoc'),document.getElementById('cell4-property'))
-BoardCellsArr[5]=new BoardCells(document.getElementById('cell5'),"Avenue 5", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell5-playersLoc'),document.getElementById('cell5-property'))
+BoardCellsArr[0]=new BoardCells(document.getElementById('cell0'),"GO", "COLLECT ₿200 AS YOU PASS.",null, null, null, null, null, null, null, null,null,document.getElementById('cell0-playersLoc'),null)
+BoardCellsArr[1]=new BoardCells(document.getElementById('cell1'),"Volla Z0T", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell1-playersLoc'),document.getElementById('cell1-property'))
+BoardCellsArr[2]=new BoardCells(document.getElementById('cell2'),"Ewei", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell2-playersLoc'),document.getElementById('cell2-property'))
+BoardCellsArr[3]=new BoardCells(document.getElementById('cell3'),"Yunuitera", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell3-playersLoc'),document.getElementById('cell3-property'))
+BoardCellsArr[4]=new BoardCells(document.getElementById('cell4'),"Dugotune", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell4-playersLoc'),document.getElementById('cell4-property'))
+BoardCellsArr[5]=new BoardCells(document.getElementById('cell5'),"Riagawa", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell5-playersLoc'),document.getElementById('cell5-property'))
 BoardCellsArr[6]=new BoardCells(document.getElementById('cell6'),"Chance", "SELECT A CHANCE CARD",null, null, null, null, null, null, null, null, null,document.getElementById('cell6-playersLoc'),null)
-BoardCellsArr[7]=new BoardCells(document.getElementById('cell7'),"Avenue 7", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell7-playersLoc'),document.getElementById('cell7-property'))
-BoardCellsArr[8]=new BoardCells(document.getElementById('cell8'),"Avenue 8", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell8-playersLoc'),document.getElementById('cell8-property'))
-BoardCellsArr[9]=new BoardCells(document.getElementById('cell9'),"Avenue 9", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell9-playersLoc'),document.getElementById('cell9-property'))
+BoardCellsArr[7]=new BoardCells(document.getElementById('cell7'),"Trao EYB1", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell7-playersLoc'),document.getElementById('cell7-property'))
+BoardCellsArr[8]=new BoardCells(document.getElementById('cell8'),"Saaturn", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell8-playersLoc'),document.getElementById('cell8-property'))
+BoardCellsArr[9]=new BoardCells(document.getElementById('cell9'),"Vumoclite", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell9-playersLoc'),document.getElementById('cell9-property'))
 BoardCellsArr[10]=new BoardCells(document.getElementById('cell10'),"JAIL","GO TO JAIL",null, null, null, null, null, null, null, null, null,document.getElementById('cell10-playersLoc'),null)
-BoardCellsArr[11]=new BoardCells(document.getElementById('cell11'),"Avenue 11", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell11-playersLoc'),document.getElementById('cell11-property'))
-BoardCellsArr[12]=new BoardCells(document.getElementById('cell12'),"Avenue 12", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell12-playersLoc'),document.getElementById('cell12-property'))
-BoardCellsArr[13]=new BoardCells(document.getElementById('cell13'),"Avenue 13", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell13-playersLoc'),document.getElementById('cell13-property'))
-BoardCellsArr[14]=new BoardCells(document.getElementById('cell14'),"Avenue 14", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell14-playersLoc'),document.getElementById('cell14-property'))
-BoardCellsArr[15]=new BoardCells(document.getElementById('cell15'),"Avenue 15", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell15-playersLoc'),document.getElementById('cell15-property'))
-BoardCellsArr[16]=new BoardCells(document.getElementById('cell16'),"ILLEGAL PARKING", "$200 fine",null, null, null, null, null, null, null, null, null,document.getElementById('cell16-playersLoc'),null)
-BoardCellsArr[17]=new BoardCells(document.getElementById('cell17'),"Avenue 17", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell17-playersLoc'),document.getElementById('cell17-property'))
-BoardCellsArr[18]=new BoardCells(document.getElementById('cell18'),"Avenue 18", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell18-playersLoc'),document.getElementById('cell18-property'))
-BoardCellsArr[19]=new BoardCells(document.getElementById('cell19'),"Avenue 19", "$200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell19-playersLoc'),document.getElementById('cell19-property'))
-BoardCellsArr[20]=new BoardCells(document.getElementById('cell20'),"FREE PARKING", "$0",null, null, null, null, null, null, null, null, null,document.getElementById('cell20-playersLoc'),null)
-BoardCellsArr[21]=new BoardCells(document.getElementById('cell21'),"Avenue 21", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell21-playersLoc'),document.getElementById('cell21-property'))
-BoardCellsArr[22]=new BoardCells(document.getElementById('cell22'),"Avenue 22", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell22-playersLoc'),document.getElementById('cell22-property'))
-BoardCellsArr[23]=new BoardCells(document.getElementById('cell23'),"Avenue 23", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell23-playersLoc'),document.getElementById('cell23-property'))
-BoardCellsArr[24]=new BoardCells(document.getElementById('cell24'),"Avenue 24", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell24-playersLoc'),document.getElementById('cell24-property'))
-BoardCellsArr[25]=new BoardCells(document.getElementById('cell25'),"Avenue 25", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell25-playersLoc'),document.getElementById('cell25-property'))
-BoardCellsArr[26]=new BoardCells(document.getElementById('cell26'),"Avenue 26", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell26-playersLoc'),document.getElementById('cell26-property'))
+BoardCellsArr[11]=new BoardCells(document.getElementById('cell11'),"Llorix 6B", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell11-playersLoc'),document.getElementById('cell11-property'))
+BoardCellsArr[12]=new BoardCells(document.getElementById('cell12'),"Vumoclite", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell12-playersLoc'),document.getElementById('cell12-property'))
+BoardCellsArr[13]=new BoardCells(document.getElementById('cell13'),"Benruna", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell13-playersLoc'),document.getElementById('cell13-property'))
+BoardCellsArr[14]=new BoardCells(document.getElementById('cell14'),"Zitriuzuno", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell14-playersLoc'),document.getElementById('cell14-property'))
+BoardCellsArr[15]=new BoardCells(document.getElementById('cell15'),"Bemebos", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell15-playersLoc'),document.getElementById('cell15-property'))
+BoardCellsArr[16]=new BoardCells(document.getElementById('cell16'),"ILLEGAL PARKING", "₿200 fine",null, null, null, null, null, null, null, null, null,document.getElementById('cell16-playersLoc'),null)
+BoardCellsArr[17]=new BoardCells(document.getElementById('cell17'),"Hitrarth", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell17-playersLoc'),document.getElementById('cell17-property'))
+BoardCellsArr[18]=new BoardCells(document.getElementById('cell18'),"Ruehiri", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell18-playersLoc'),document.getElementById('cell18-property'))
+BoardCellsArr[19]=new BoardCells(document.getElementById('cell19'),"Siranus", "₿200", null, null, 50, 70, 100, 200, 100, 200,0,document.getElementById('cell19-playersLoc'),document.getElementById('cell19-property'))
+BoardCellsArr[20]=new BoardCells(document.getElementById('cell20'),"FREE PARKING", "₿0",null, null, null, null, null, null, null, null, null,document.getElementById('cell20-playersLoc'),null)
+BoardCellsArr[21]=new BoardCells(document.getElementById('cell21'),"Trenibos", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell21-playersLoc'),document.getElementById('cell21-property'))
+BoardCellsArr[22]=new BoardCells(document.getElementById('cell22'),"Sagua 0H", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell22-playersLoc'),document.getElementById('cell22-property'))
+BoardCellsArr[23]=new BoardCells(document.getElementById('cell23'),"Crillon 639", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell23-playersLoc'),document.getElementById('cell23-property'))
+BoardCellsArr[24]=new BoardCells(document.getElementById('cell24'),"Vehines", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell24-playersLoc'),document.getElementById('cell24-property'))
+BoardCellsArr[25]=new BoardCells(document.getElementById('cell25'),"Duzivis", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell25-playersLoc'),document.getElementById('cell25-property'))
+BoardCellsArr[26]=new BoardCells(document.getElementById('cell26'),"Zanahines", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell26-playersLoc'),document.getElementById('cell26-property'))
 BoardCellsArr[27]=new BoardCells(document.getElementById('cell27'),"Chance", "SELECT A CHANCE CARD",null, null, null, null, null, null, null, null, null,document.getElementById('cell27-playersLoc'),null)
-BoardCellsArr[28]=new BoardCells(document.getElementById('cell28'),"Avenue 28", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell28-playersLoc'),document.getElementById('cell28-property'))
-BoardCellsArr[29]=new BoardCells(document.getElementById('cell29'),"Avenue 29", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell29-playersLoc'),document.getElementById('cell29-property'))
+BoardCellsArr[28]=new BoardCells(document.getElementById('cell28'),"Dosie 7X5", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell28-playersLoc'),document.getElementById('cell28-property'))
+BoardCellsArr[29]=new BoardCells(document.getElementById('cell29'),"Thichi H77", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell29-playersLoc'),document.getElementById('cell29-property'))
 BoardCellsArr[30]=new BoardCells(document.getElementById('cell30'),"Go to Jail","GO TO JAIL",null, null, null, null, null, null, null, null, null,document.getElementById('cell30-playersLoc'),null)
-BoardCellsArr[31]=new BoardCells(document.getElementById('cell31'),"Avenue 31", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell31-playersLoc'),document.getElementById('cell31-property'))
-BoardCellsArr[32]=new BoardCells(document.getElementById('cell32'),"Avenue 32", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell32-playersLoc'),document.getElementById('cell32-property'))
-BoardCellsArr[33]=new BoardCells(document.getElementById('cell33'),"Avenue 33", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell33-playersLoc'),document.getElementById('cell33-property'))
-BoardCellsArr[34]=new BoardCells(document.getElementById('cell34'),"Avenue 34", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell34-playersLoc'),document.getElementById('cell34-property'))
+BoardCellsArr[31]=new BoardCells(document.getElementById('cell31'),"Rolmuturn", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell31-playersLoc'),document.getElementById('cell31-property'))
+BoardCellsArr[32]=new BoardCells(document.getElementById('cell32'),"Negnatune", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell32-playersLoc'),document.getElementById('cell32-property'))
+BoardCellsArr[33]=new BoardCells(document.getElementById('cell33'),"Nudarvis", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell33-playersLoc'),document.getElementById('cell33-property'))
+BoardCellsArr[34]=new BoardCells(document.getElementById('cell34'),"Lilniri", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell34-playersLoc'),document.getElementById('cell34-property'))
 BoardCellsArr[35]=new BoardCells(document.getElementById('cell35'),"Chance", "SELECT A CHANCE CARD",null, null, null, null, null, null, null, null, null,document.getElementById('cell34-playersLoc'),null)
-BoardCellsArr[36]=new BoardCells(document.getElementById('cell36'),"Avenue 36", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell36-playersLoc'),document.getElementById('cell36-property'))
-BoardCellsArr[37]=new BoardCells(document.getElementById('cell37'),"Avenue 37", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell37-playersLoc'),document.getElementById('cell37-property'))
-BoardCellsArr[38]=new BoardCells(document.getElementById('cell38'),"Avenue 38", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell38-playersLoc'),document.getElementById('cell38-property'))
-BoardCellsArr[39]=new BoardCells(document.getElementById('cell39'),"Avenue 39", "$200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell39-playersLoc'),document.getElementById('cell39-property'))
+BoardCellsArr[36]=new BoardCells(document.getElementById('cell36'),"Inerth", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell36-playersLoc'),document.getElementById('cell36-property'))
+BoardCellsArr[37]=new BoardCells(document.getElementById('cell37'),"Baunerth", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell37-playersLoc'),document.getElementById('cell37-property'))
+BoardCellsArr[38]=new BoardCells(document.getElementById('cell38'),"Boconia", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell38-playersLoc'),document.getElementById('cell38-property'))
+BoardCellsArr[39]=new BoardCells(document.getElementById('cell39'),"Phahoria", "₿200", null, null, 50, 70, 100, 200, 100, 200, 0,document.getElementById('cell39-playersLoc'),document.getElementById('cell39-property'))
 
 
 // chances cards as objects:
@@ -304,16 +304,16 @@ class Cards {
   }
 }
 
-chanceCardsArr[0] = new Cards("add $100",100)
-chanceCardsArr[1] = new Cards("add $200",200)
-chanceCardsArr[2] = new Cards("add $500",500)
-chanceCardsArr[3] = new Cards("lost $100",-100)
-chanceCardsArr[4] = new Cards("lost $200",-200)
-chanceCardsArr[5] = new Cards("lost $300",-300)
-chanceCardsArr[6] = new Cards("add $100",100)
-chanceCardsArr[7] = new Cards("add $300",300)
-chanceCardsArr[8] = new Cards("add $500",500)
-chanceCardsArr[9] = new Cards("add $100",100)
+chanceCardsArr[0] = new Cards("add ₿100",100)
+chanceCardsArr[1] = new Cards("add ₿200",200)
+chanceCardsArr[2] = new Cards("add ₿500",500)
+chanceCardsArr[3] = new Cards("lost ₿100",-100)
+chanceCardsArr[4] = new Cards("lost ₿200",-200)
+chanceCardsArr[5] = new Cards("lost ₿300",-300)
+chanceCardsArr[6] = new Cards("add ₿100",100)
+chanceCardsArr[7] = new Cards("add ₿300",300)
+chanceCardsArr[8] = new Cards("add ₿500",500)
+chanceCardsArr[9] = new Cards("add ₿100",100)
 
 
 /*-------------------------------- Functions --------------------------------*/
