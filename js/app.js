@@ -1,6 +1,6 @@
 /*-------------------------------- Constants --------------------------------*/
 
-const initialFund = 2000 
+const initialFund = 300 
 const player1 = "Player 1"
 const player2 = "Player 2"
 const player3 = "Player 3"
@@ -181,16 +181,32 @@ inJailBtn.addEventListener("click", () => {
   endRound()
 })
 outOfJailBtn.addEventListener("click", () => {
+  
   showHideOutOfJail()
   showDice()
 })
 
 winnerBtn.addEventListener("click", () => {
-
+  homePage.style.display = 'flex'
+  gamePage.style.display = 'none'
+  playBtn.style.display = "none"
+  init()
+  hideDice()
+  hideChance()
+  buyWrapper.classList.remove('show')
+  RentWrapper.classList.remove('show')
+  PassGoWrapper.classList.remove('show')
+  illegalParkingWrapper.classList.remove('show')
+  freeParkingWrapper.classList.remove('show')
+  outOfJailWrapper.classList.remove('show')
+  winnerWrapper.classList.remove('show')
+  outOfGameWrapper.classList.remove('show')
+  chanceCardWrapper.classList.remove('show')
 })
 outOfGameBtn.addEventListener("click", () => {
-  turn -= 1
-  outOfGame()
+  turn -= turnId-1
+  outOfGameWrapper.classList.remove("show");
+  // console.log(playerArr)
   endRound()
 })
 drawCardBtn.addEventListener("click", () => {
@@ -288,16 +304,16 @@ class Cards {
   }
 }
 
-chanceCardsArr[0] = new Cards("add $100",function(){ adjustFund(100);})
-chanceCardsArr[1] = new Cards("add $200",function(){ adjustFund(200);})
-chanceCardsArr[2] = new Cards("add $500",function(){ adjustFund(500);})
-chanceCardsArr[3] = new Cards("lost $100",function(){ adjustFund(-100);})
-chanceCardsArr[4] = new Cards("lost $200",function(){ adjustFund(-200);})
-chanceCardsArr[5] = new Cards("lost $300",function(){ adjustFund(-300);})
-chanceCardsArr[6] = new Cards("add $100",function(){ adjustFund(100);})
-chanceCardsArr[7] = new Cards("add $300",function(){ adjustFund(300);})
-chanceCardsArr[8] = new Cards("add $500",function(){ adjustFund(500);})
-chanceCardsArr[9] = new Cards("Go to Jail",function(){ inJail();})
+chanceCardsArr[0] = new Cards("add $100",100)
+chanceCardsArr[1] = new Cards("add $200",200)
+chanceCardsArr[2] = new Cards("add $500",500)
+chanceCardsArr[3] = new Cards("lost $100",-100)
+chanceCardsArr[4] = new Cards("lost $200",-200)
+chanceCardsArr[5] = new Cards("lost $300",-300)
+chanceCardsArr[6] = new Cards("add $100",100)
+chanceCardsArr[7] = new Cards("add $300",300)
+chanceCardsArr[8] = new Cards("add $500",500)
+chanceCardsArr[9] = new Cards("add $100",100)
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -319,7 +335,20 @@ function init(){
   BoardCellsArr.forEach(el => {
     if (el.propertyEl){
       el.propertyEl.style.border = "#f0aa07 1px solid "
+      el.propertyEl.classList.remove("level1")
+      el.propertyEl.classList.remove("level2")
+      el.propertyEl.classList.remove("level3")
     }
+    if (el.playerLocEl){
+      el.playerLocEl.classList.remove("player1Loc")
+      el.playerLocEl.classList.remove("player2Loc")
+      el.playerLocEl.classList.remove("player3Loc")
+      el.playerLocEl.classList.remove("player4Loc")
+    }
+  });
+
+  playersStatsArr.forEach(i => {
+    i.classList.remove("show")
   });
 
   for (let i = 0; i < plCount; i++) {
@@ -330,15 +359,7 @@ function init(){
     playersEstateArr[i] = []
   }
   
-  renderPlayerStats()
-  turnId=turn%playerArr.length
   
-  // console.log(playerArr)
-  
-}
-
-function renderPlayerStats(){
-  let currentPlayers = []
   for (let i=0;i<playerArr.length;i++){
     if (playerArr[i].name == player1){
       playersStatsArr[i].style.border = "#b5179e 1px solid"
@@ -349,10 +370,24 @@ function renderPlayerStats(){
     } else if (playerArr[i].name == player4){
       playersStatsArr[i].style.border = "#001f54 1px solid"
     } 
+
+    playersStatsArr[i].innerText = "Name: " + playerArr[i].name + '\n'+ "Fund: " + playerArr[i].fund +'\n'+ "Current location: " + playerArr[i].location.name + '\n'+ "Estate: " + playersEstateArr[i]  + '\n'+ "Status: " + playerArr[i].status
+
+  }
+  turnId=turn%playerArr.length
+  
+  // console.log(playerArr)
+  
+}
+
+function renderPlayerStats(){
+
+
+  for (let i=0;i<playerArr.length;i++){
     if (playerArr[i].status == "in Jail" || playerArr[i].status == 'Jail Time - two more round' || playerArr[i].status == "Jail Time - one more round"){
       playersStatsArr[i].style.color = "red"
-    } else if (playerArr[i].status == "Out of Game"){
-      playersStatsArr[i].style.color = "grey"
+    } else if (playerArr[i].status == "playing"){
+      playersStatsArr[i].style.color = "white"
     }
     playersStatsArr[i].innerText = "Name: " + playerArr[i].name + '\n'+ "Fund: " + playerArr[i].fund +'\n'+ "Current location: " + playerArr[i].location.name + '\n'+ "Estate: " + playersEstateArr[i]  + '\n'+ "Status: " + playerArr[i].status
  
@@ -405,7 +440,6 @@ function play() {
   currentLocation = BoardCellsArr[playerArr[turnId].steps%40]
 
   playerArr[turnId].location.playerLocEl.classList.add("player"+(turnId+1)+"Loc")
-console.log(playerArr[turnId].location.playerLocEl)
 
 
   if (playerArr[turnId].steps%40 == 0){
@@ -423,14 +457,14 @@ console.log(playerArr[turnId].location.playerLocEl)
   } else {
     buyOrRent()
   }
-
-  // console.log(playerArr)
+  // chanceCardsArr[0].action
 
 }
 
 function endRound(){
   if (playerArr.length == 1){
-    isWinner(playerArr[0])
+    isWinner(playerArr[0].name)
+    console.log(playerArr[0].name)
   } else {
     turn += 1
     turnId=turn%playerArr.length;
@@ -441,15 +475,22 @@ function endRound(){
       hideDice()
       inJail()
     }
+    renderPlayerStats()
+    renderTurn()
   }
-  renderPlayerStats()
-  renderTurn()
 }
 
 function outOfGame(){
   outOfGameWrapper.classList.toggle("show");
   outOfGameMsg.innerText = `${playerArr[turnId].name} is out of the game!`
   playerArr[turnId].status = "Out of Game"
+  playersStatsArr[turnId].style.color = "grey"
+  playersStatsArr[turnId].innerText = "Name: " + playerArr[turnId].name + '\n'+ "Fund: " + playerArr[turnId].fund +'\n'+ "Current location: " + playerArr[turnId].location.name + '\n'+ "Estate: " + playersEstateArr[turnId]  + '\n'+ "Status: " + playerArr[turnId].status
+  playerArr.splice(turnId, 1)
+  playersStatsArr.splice(turnId, 1)
+console.log(playerArr)
+console.log(playersStatsArr)
+console.log(turnId)
 }
 function isWinner(x){
   winnerWrapper.classList.toggle("show");
@@ -474,9 +515,7 @@ function drawChance(){
   
   chanceCardImg.className = "card"+cardIndex
   chanceCardMsg.innerText = `You selected card number ${cardIndex}. ${card.msg}`
-  card.action
-  console.log(cardIndex)
-  console.log(card.action)
+  adjustFund(card.action)
   confirmCardBtn.classList.add("show");
 
 }
@@ -587,42 +626,57 @@ function buyOrRent(){
 
 function buyLand(){
   if (playerArr[turnId].location.level == 0){
-    playerArr[turnId].estate.push(playerArr[turnId].location)
-    playersEstateArr[turnId].push(playerArr[turnId].location.name)
-    playerArr[turnId].location.owner = playerArr[turnId]
-    adjustFund(-playerArr[turnId].location.price)
-    playerArr[turnId].location.level = 1
-    if (playerArr[turnId].name == player1){
-      playerArr[turnId].location.propertyEl.style.border = "#b5179e 1px solid"
-    } else if (playerArr[turnId].name == player2){
-      playerArr[turnId].location.propertyEl.style.border = "#1a936f 1px solid"
-    } else if (playerArr[turnId].name == player3){
-      playerArr[turnId].location.propertyEl.style.border = "#e07a5f 1px solid"
-    } else if (playerArr[turnId].name == player4){
-      playerArr[turnId].location.propertyEl.style.border = "#001f54 1px solid"
-    } 
-    playerArr[turnId].location.propertyEl.classList.add("level1")
-
+    if (playerArr[turnId].fund > playerArr[turnId].location.price){
+      playerArr[turnId].estate.push(playerArr[turnId].location)
+      playersEstateArr[turnId].push(playerArr[turnId].location.name)
+      playerArr[turnId].location.owner = playerArr[turnId]
+      adjustFund(-playerArr[turnId].location.price)
+      playerArr[turnId].location.level = 1
+      if (playerArr[turnId].name == player1){
+        playerArr[turnId].location.propertyEl.style.border = "#b5179e 1px solid"
+      } else if (playerArr[turnId].name == player2){
+        playerArr[turnId].location.propertyEl.style.border = "#1a936f 1px solid"
+      } else if (playerArr[turnId].name == player3){
+        playerArr[turnId].location.propertyEl.style.border = "#e07a5f 1px solid"
+      } else if (playerArr[turnId].name == player4){
+        playerArr[turnId].location.propertyEl.style.border = "#001f54 1px solid"
+      } 
+      playerArr[turnId].location.propertyEl.classList.add("level1")
+      endRound()
+    } else {
+      adjustFund(-playerArr[turnId].location.price)
+    }
   } else if (playerArr[turnId].location.level = 1){
-    adjustFund(-playerArr[turnId].location.price2)
-    playerArr[turnId].location.level = 2
-    playerArr[turnId].location.propertyEl.classList.add("level2")
+    if (playerArr[turnId].fund > playerArr[turnId].location.price2){
+      adjustFund(-playerArr[turnId].location.price2)
+      playerArr[turnId].location.level = 2
+      playerArr[turnId].location.propertyEl.classList.add("level2")
+      endRound()
+    } else {
+      adjustFund(-playerArr[turnId].location.price2)
+    }
   } else if (playerArr[turnId].location.level = 2){
-    adjustFund(-playerArr[turnId].location.price3)
-    playerArr[turnId].location.level = 3
-    playerArr[turnId].location.propertyEl.classList.add("level3")
+    if (playerArr[turnId].fund > playerArr[turnId].location.price2){
+      adjustFund(-playerArr[turnId].location.price3)
+      playerArr[turnId].location.level = 3
+      playerArr[turnId].location.propertyEl.classList.add("level3")
+      endRound()
+    }else {
+      adjustFund(-playerArr[turnId].location.price3)
+    }
 
   }
-  console.log(playerArr)
-  endRound()
+  // console.log(playerArr)
   showHideBuy()
 }
 
 
 function adjustFund(x){
   playerArr[turnId].fund += x
+  // console.log(playerArr[turnId])
   if (playerArr[turnId].fund < 0){
     outOfGame()
-    playerArr.splice(turnId, 1)
+    buyWrapper.classList.remove("show");
+    chanceCardWrapper.classList.remove("show");
   } 
 }
