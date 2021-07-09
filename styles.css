@@ -1,25 +1,30 @@
 *{
-    background-color: #484d9e;
-}
-
-body {
-	margin: 0px;
-  font-family: 'Mulish', sans-serif;
-  color: white;
-}
-
-button{
-  border:0px;
-  padding: 10px 10px;
-  border-radius: 10px;
-  font-family: 'Mulish', sans-serif;
-  color: white;
-  background-color: #f0aa07;
-}
-
-/* ------------------------------------------------------ Home Page CSS -----------------------------------------------------*/
-
-div.home {
+    /* background-color: #484d9e; */
+  }
+  
+  body {
+    margin: 0px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: white;
+    background-image: url("./asset/BG.svg");
+    background-size: cover;
+  }
+  
+  button{
+    border:0px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: white;
+    background-color: #f0aa07;
+  }
+  button:hover{
+    background-color: #c468c7;
+  }
+  
+  /* ------------------------------------------------------ Home Page CSS -----------------------------------------------------*/
+  
+  div.home {
     text-align: center;
     margin: 8vh;
     display: flex;
@@ -82,12 +87,16 @@ h1{
 /* game left column: */
 .playerStats {
     grid-column-start: 1;
-    /* border: 1px solid ; */
+    border: #f0aa07 1px solid ;
+    background-color: #696ebd;
+    border-radius: 5vh;
+    padding: 2vh;
     width: 15vw;
     visibility: hidden;
     text-align: center;
     align-self: center;
 }
+
 .playerStats.show {
   visibility: visible;
 }
@@ -102,10 +111,10 @@ h1{
     
     #boardWrapper{
         display: grid;
-        grid-template-columns: 88px repeat(9,66px) 88px;
-        grid-template-rows: 88px repeat(9,66px) 88px;
-        column-gap: 2px;
-        row-gap: 2px;
+        grid-template-columns: 150px repeat(9,66px) 150px;
+        grid-template-rows: 150px repeat(9,66px) 150px;
+        column-gap: 10px;
+        row-gap: 10px;
     }
     
     
@@ -116,56 +125,113 @@ h1{
     }
     
     .top, .bottom{
-        width: 66px;
-        height: 88px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 30px,88px,30px;
+      align-items: center;
+      justify-content: center;
+    }
+    .top>img, .bottom>img{
+      width: 66px;
+      height: 88px;
+      margin: 0px;
+      grid-row-start: 2;
     }
     .left, .right{
         width: 66px;
-        height:88px;
+        height:150px;
         transform: rotate(-90deg) translate(-66px); 
         transform-origin: top left;
+        display: grid;
+        grid-template-columns: 30px,88px,30px;
+        align-items: center;
+        justify-content: center;
     } 
+    .left>img, .right>img{
+      width: 66px;
+      height: 88px;
+      margin: 0px;
+    }
+    .corner >img{
+      width: 88px;
+    }
 
-    .player1Loc{
-        background-image: url("./asset/dice-1.svg");
-        background-size: 2vh;
-        background-repeat: no-repeat;
-        background-position-y: 1vh;
-        background-blend-mode:screen;
+    .corner{
+      justify-content:center;
+      align-self: center;
+      text-align: center;
+    }
+    .playerProperty{
+      height: 30px;
+      border-radius: 5px;
+      border: #f0aa07 1px solid;
+      margin: 2px;
+    }
+    .playerProperty.level1{
+      background-image: url("./asset/player-building-1.svg");
+      background-size: 35px;
+      background-repeat: no-repeat;
+    }
+    .playerProperty.level2{
+      background-image: url("./asset/player-building-2.svg");
+      background-size: 35px;
+      background-repeat: no-repeat;
+    }
+    .playerProperty.level3{
+      background-image: url("./asset/player-building-3.svg");
+      background-size: 35px;
+      background-repeat: no-repeat;
+    }
+
+    .empty{
+      height: 30px;
+      border-radius: 5px;
+      border: #f0aa07 1px solid;
+
+      margin: 2px;
+    }
+
+    .playersLoc{
+      height: 30px;
+      border: #f0aa07 1px solid;
+      border-radius: 5px;
+      margin: 2px;
+    }
+    .playersLoc.player1Loc{
+      background-image: url("./asset/player-icons-1.svg");
+      background-size: 35px;
+      background-repeat: no-repeat;
 
     }
 
-    .player2Loc{
-        background-image: url("./asset/dice-1.svg");
-        background-size: 2vh;
+    .playersLoc.player2Loc{
+      background-image: url("./asset/player-icons-2.svg");
+      background-size: 35px;
+      background-repeat: no-repeat;
+    }
+
+    .playersLoc.player3Loc{
+      background-image: url("./asset/player-icons-3.svg");
+      background-size: 35px;
+      background-repeat: no-repeat;
+    }
+    .playersLoc.player4Loc{
+        background-image: url("./asset/player-icons-4.svg");
+        background-size: 35px;
         background-repeat: no-repeat;
-        background-position-y: 3vh;
-        background-blend-mode: screen;
 
     }
 
-    .player3Loc{
-        background-image: url("./asset/dice-1.svg");
-        background-size: 2vh;
-        background-repeat: no-repeat;
-        background-position-y: 5vh;
-        background-blend-mode: screen;
-    }
-    .player4Loc{
-        background-image: url("./asset/dice-1.svg");
-        background-size: 2vh;
-        background-repeat: no-repeat;
-        background-position-y: 7vh;
-        background-blend-mode: screen;
-
-    }
 
 /* game right column: */
 
 #gameSum{
     grid-column-start: 3;
     grid-row-start: 1;
-    /* border: 1px solid ; */
+    border: #f0aa07 1px solid ;
+    background-color: #696ebd;
+    border-radius: 5vh;
+    padding: 2vh;
     width: 15vw;
     text-align: center;
     align-self: center;
@@ -184,21 +250,19 @@ h1{
         visibility: hidden;
         width: 200px;
         height: 300px;
-        /* background-color: rgb(255, 255, 255); */
-        /* color: rgb(0, 0, 0); */
-        border: indigo 1px solid;
+        border: #f0aa07 1px solid;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-radius: 15px;
+        border-radius: 5vh;
         padding: 8px;
         position: absolute;
         z-index: 1;
         bottom: 35%;
         left: 50%;
         padding: 20px;
-        margin-left: -15vh;
+        margin-left: -10vh;
       }
 
       .dice-wrapper.show {
@@ -264,21 +328,21 @@ h1{
   visibility: hidden;
   width: 200px;
   height: 300px;
-  /* background-color: rgb(255, 255, 255); */
+  background-color: #696ebd;
   /* color: rgb(0, 0, 0); */
-  border: indigo 1px solid;
+  border: #f0aa07 2px solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 5vh;
   padding: 8px;
   position: absolute;
   z-index: 1;
   bottom: 35%;
   left: 50%;
   padding: 20px;
-  margin-left: -15vh;
+  margin-left: -10vh;
 }    
   
   .buyWrapper.show, .RentWrapper.show,.PassGoWrapper.show,  .illegalParkingWrapper.show,.freeParkingWrapper.show,.freeParkingWrapper.show,.inJailWrapper.show,.outOfJailWrapper.show ,.winnerWrapper.show, .outOfGameWrapper.show  {
@@ -287,27 +351,7 @@ h1{
     animation: fadeIn 1s
   } 
 
-  /* .RentWrapper {
-    visibility: hidden;
-    width: 160px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: indigo 1px solid;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 50%;
-    left: 50%;
-    margin-left: -80px;
-  } */
-  
-  /* .RentWrapper.show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  } */
+
 
   @-webkit-keyframes fadeIn {
     from {opacity: 0;}
@@ -319,207 +363,24 @@ h1{
     to {opacity:1 ;}
   }
 
-/* Pass Go Pop up Window: */
-/* .PassGoWrapper {
-    visibility: hidden;
-    width: 160px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: indigo 1px solid;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 50%;
-    left: 50%;
-    margin-left: -80px;
-  } */
-  
-  /* .PassGoWrapper.show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  } */
-
-  /* Illegal Parking Pop up Window: */
-/* .illegalParkingWrapper {
-    visibility: hidden;
-    width: 160px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border: indigo 1px solid;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 50%;
-    left: 50%;
-    margin-left: -80px;
-  } */
-  
-  /* .illegalParkingWrapper.show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  } */
-
-    /* Free Parking Pop up Window: */
-/* .freeParkingWrapper {
-  visibility: hidden;
-  width: 160px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border: indigo 1px solid;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 50%;
-  left: 50%;
-  margin-left: -80px;
-} */
-
-/* .freeParkingWrapper.show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-} */
-
-/* Free Parking Pop up Window: */
-/* .freeParkingWrapper {
-  visibility: hidden;
-  width: 160px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border: indigo 1px solid;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 50%;
-  left: 50%;
-  margin-left: -80px;
-} */
-
-/* .freeParkingWrapper.show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-} */
-
-/* In Jail Pop up Window: */
-/* .inJailWrapper {
-  visibility: hidden;
-  width: 160px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border: indigo 1px solid;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 50%;
-  left: 50%;
-  margin-left: -80px;
-} */
-
-/* .inJailWrapper.show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-} */
-
-/* Out of Jail Pop up Window: */
-/* .outOfJailWrapper {
-  visibility: hidden;
-  width: 160px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border: indigo 1px solid;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 50%;
-  left: 50%;
-  margin-left: -80px;
-} */
-
-/* .outOfJailWrapper.show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-} */
-
-/* Winner Pop up Window: */
-/* .winnerWrapper {
-  visibility: hidden;
-  width: 160px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border: indigo 1px solid;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 50%;
-  left: 50%;
-  margin-left: -80px;
-} */
-
-/* .winnerWrapper.show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-} */
-/* Winner Pop up Window: */
-/* .outOfGameWrapper {
-  visibility: hidden;
-  width: 160px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  border: indigo 1px solid;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 50%;
-  left: 50%;
-  margin-left: -80px;
-} */
-
-/* .outOfGameWrapper.show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-} */
-
 /* Chance Card Pop up Window: */
 .chanceCardWrapper {
   visibility: hidden;
   width: 200px;
   height: 300px;
-  border: indigo 1px solid;
+  border: #f0aa07 1px solid;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 5vh;
   padding: 8px;
   position: absolute;
   z-index: 1;
   bottom: 35%;
   left: 50%;
   padding: 20px;
-  margin-left: -15vh;
+  margin-left: -10vh;
 }
 
 .chanceCardWrapper.show {
