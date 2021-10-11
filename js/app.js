@@ -1,3 +1,7 @@
+/*-------------------------------- Animations --------------------------------*/
+var scene = document.getElementById("scene");
+var parallaxInstance = new Parallax(scene);
+
 /*-------------------------------- Constants --------------------------------*/
 
 const initialFund = 1000 
