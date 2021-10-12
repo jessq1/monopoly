@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+    <script defer src="./js/index.js"></script>
 	<script defer src="./js/app.js"></script>
     <title>Monopoly</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,22 +15,33 @@
 <body>
 
 <div class='home'>
-    <h1>Let's play Monopoly!</h1>
-
-    <div class="playerNumSelection">
-        <h2>Select how many people is playing:</h2>
-        <div class="select-playerNum">
-              <div class="playerNumOption" id="2ppl">2</div>
-  
-              <div class="playerNumOption"id="3ppl">3</div>
-  
-              <div class="playerNumOption" id="4ppl">4</div>
-        
+        <div id="scene">
+          <div data-depth="0.2" class="bg">
+            <img src="asset/BG-1.svg" alt="" />
+          </div>
+          <div data-depth="0.7" class="bg">
+            <img src="asset/BG-2.svg" alt="" />
+          </div>
         </div>
-    </div>
+        
+        <div class="homeSec">
+            <h1>Let's play Monopoly!</h1>
+        
+            <div class="playerNumSelection">
+                <h2>Select how many people is playing:</h2>
+                <div class="select-playerNum">
+                      <div class="playerNumOption" id="2ppl">2</div>
+          
+                      <div class="playerNumOption"id="3ppl">3</div>
+          
+                      <div class="playerNumOption" id="4ppl">4</div>
+                
+                </div>
+            </div>
+        
+            <button id="playGame">Start Game!</button>
 
-    <button id="playGame">Start Game!</button>
-
+        </div>
 
 </div>
 

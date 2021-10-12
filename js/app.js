@@ -1,6 +1,3 @@
-/*-------------------------------- Animations --------------------------------*/
-var scene = document.getElementById("scene");
-var parallaxInstance = new Parallax(scene);
 
 /*-------------------------------- Constants --------------------------------*/
 
@@ -110,7 +107,7 @@ const playerMsg = document.getElementById('playerMsg');
 PlayerNumSel.addEventListener("click", (evt) => {
     plCount = evt.target.id.charAt(0)
     playBtn.style.display = "flex"
-
+    console.log(evt.target.id.charAt(0))
   });
   
 playBtn.addEventListener("click", () => {
