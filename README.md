@@ -1,6 +1,6 @@
 # monopoly-the Space Version<br>
 0.Background:<br>
-    This is year 22000, where technologies allow human to explore the universe freely! As one of the first exploror of the universe, you have the chance to build up Real Estate in space! 
+    This is the year 22000, where technologies allow humans to explore the universe freely! As one of the first explorers of the universe, you have the chance to build up Real Estate in space!
 
 I. To play the game:<br>
     The game is published at https://jessq1.github.io/monopoly/<br>
@@ -38,10 +38,11 @@ IV.Technologies Used:<br>
     3. JavaScript<br>
     4. Adobe Illustrator<br>
 
-V. Nex-Steps:<br>
-    1. CSS for enhanced UIs (icons, graphics)<br>
+V. Next-Steps:<br>
+    1. Adding animations<br>
     2. Sounds effect for winning<br>
     3. Mobile version<br>
 
 VI.References:<br>
     1. Planet name generator: https://fantasynamegenerators.com/planet_names.php<br>
+    2. Assets developed by Jessq1. Visual reference from Pinterest: https://www.pinterest.com.mx/pin/833728949772455821/

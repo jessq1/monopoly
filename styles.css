@@ -24,13 +24,32 @@
   
   /* ------------------------------------------------------ Home Page CSS -----------------------------------------------------*/
   
+  .bg img {
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+  }
+  
   div.home {
+    background-image: url("./asset/BG-0.svg");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+  #scene{
+    z-index: 10;
+    position: absolute;    
+  }
+  .homeSec{
+    position: absolute;
+    margin-top: 10vh;
     text-align: center;
-    margin: 8vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
+    width: 92vw;
+    /* z-index: 100; */
 }
 
 #playGame {
@@ -40,12 +59,14 @@ h1{
   font-family: 'Zen Tokyo Zoo', cursive;
   font-size: 80px;
   font-weight: 100;
+  z-index: 110;
 }
 
     /* Home Page Selection */
 
     .select-playerNum{
     display: flex;
+    z-index: 120;
     }
 
     .playerNumOption{
@@ -59,6 +80,7 @@ h1{
     border: white 1px solid;
     border-radius: 35%;
     margin: 5%;
+    z-index: 120;
     }
     .playerNumOption:hover{
       background-color: #f0aa07;

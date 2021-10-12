@@ -1,3 +1,4 @@
+
 /*-------------------------------- Constants --------------------------------*/
 
 const initialFund = 1000 
@@ -106,7 +107,7 @@ const playerMsg = document.getElementById('playerMsg');
 PlayerNumSel.addEventListener("click", (evt) => {
     plCount = evt.target.id.charAt(0)
     playBtn.style.display = "flex"
-
+    console.log(evt.target.id.charAt(0))
   });
   
 playBtn.addEventListener("click", () => {
@@ -206,7 +207,6 @@ winnerBtn.addEventListener("click", () => {
 outOfGameBtn.addEventListener("click", () => {
   turn -= turnId-1
   outOfGameWrapper.classList.remove("show");
-  // console.log(playerArr)
   endRound()
 })
 drawCardBtn.addEventListener("click", () => {
@@ -376,7 +376,6 @@ function init(){
   }
   turnId=turn%playerArr.length
   
-  // console.log(playerArr)
   
 }
 
@@ -457,14 +456,12 @@ function play() {
   } else {
     buyOrRent()
   }
-  // chanceCardsArr[0].action
 
 }
 
 function endRound(){
   if (playerArr.length == 1){
     isWinner(playerArr[0].name)
-    console.log(playerArr[0].name)
   } else {
     turn += 1
     turnId=turn%playerArr.length;
@@ -488,9 +485,6 @@ function outOfGame(){
   playersStatsArr[turnId].innerText = "Name: " + playerArr[turnId].name + '\n'+ "Fund: " + playerArr[turnId].fund +'\n'+ "Current location: " + playerArr[turnId].location.name + '\n'+ "Estate: " + playersEstateArr[turnId]  + '\n'+ "Status: " + playerArr[turnId].status
   playerArr.splice(turnId, 1)
   playersStatsArr.splice(turnId, 1)
-console.log(playerArr)
-console.log(playersStatsArr)
-console.log(turnId)
 }
 function isWinner(x){
   winnerWrapper.classList.toggle("show");
@@ -666,14 +660,12 @@ function buyLand(){
     }
 
   }
-  // console.log(playerArr)
   showHideBuy()
 }
 
 
 function adjustFund(x){
   playerArr[turnId].fund += x
-  // console.log(playerArr[turnId])
   if (playerArr[turnId].fund < 0){
     outOfGame()
     buyWrapper.classList.remove("show");
